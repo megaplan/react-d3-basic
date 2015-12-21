@@ -1,98 +1,105 @@
 "use strict";
 
 import {
-    default as React,
-    Component,
-    PropTypes,
+  default as React,
+  Component,
+  PropTypes,
 } from 'react';
 
 import {
-    Xaxis,
-    Yaxis,
-    Xgrid,
-    Ygrid,
-    Legend
+  Xaxis,
+  Yaxis,
+  Xgrid,
+  Ygrid,
+  Legend
 } from 'react-d3-core';
 
 import {
-    Bar,
-    Chart
+  Bar,
+  Chart
 } from 'react-d3-shape';
 
 import CommonProps from './commonProps';
 
 export default class BarChart extends Component {
 
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
+  }
+
+  static defaultProps = Object.assign(CommonProps, {
+    onMouseOver: () => {
+    },
+    onMouseOut: () => {
     }
+  })
 
-    static defaultProps = Object.assign(CommonProps, {
-        onMouseOver: () => {
-        },
-        onMouseOut: () => {
-        }
-    })
+  static propTypes = {
+    width: PropTypes.number.isRequired,
+    height: PropTypes.number.isRequired,
+    margins: PropTypes.object.isRequired,
+    data: PropTypes.array.isRequired,
+    chartSeries: PropTypes.array.isRequired
+  }
 
-    static propTypes = {
-        width: PropTypes.number.isRequired,
-        height: PropTypes.number.isRequired,
-        margins: PropTypes.object.isRequired,
-        data: PropTypes.array.isRequired,
-        chartSeries: PropTypes.array.isRequired
-    }
+  render() {
 
-    render() {
+    const {
+      width,
+      height,
+      margins,
+      data,
+      chartSeries,
+      showXGrid,
+      showYGrid,
+      categoricalColors,
+      barClassName,
+      xAxisClassName,
+      yAxisClassName,
+      xWordWrap,
+      xGridAxisLineStyle,
+      yGridAxisLineStyle
+      } = this.props;
 
-        const {
-            width,
-            height,
-            margins,
-            data,
-            chartSeries,
-            showXGrid,
-            showYGrid,
-            categoricalColors,
-            barClassName,
-            xAxisClassName,
-            yAxisClassName
-            } = this.props;
+    var xgrid, ygrid;
 
-        var xgrid, ygrid;
+    if(showXGrid) xgrid = <Xgrid gridAxisLineStyle={xGridAxisLineStyle}/>
+    if(showYGrid) ygrid = <Ygrid gridAxisLineStyle={yGridAxisLineStyle}/>
 
-        if (showXGrid) xgrid = <Xgrid/>
-        if (showYGrid) ygrid = <Ygrid/>
+    return (
+      <div>
+        <Legend
+          {...this.props}
+          width={width}
+          margins={margins}
+          chartSeries={chartSeries}
+          categoricalColors={categoricalColors}
+        />
+        <Chart
+          {...this.props}
+          width={width}
+          height={height}
+          data={data}
+          chartSeries={chartSeries}
+        >
 
-        return (
-            <div>
-                <Legend
-                    {...this.props}
-                    width={width}
-                    margins={margins}
-                    chartSeries={chartSeries}
-                    categoricalColors={categoricalColors}
-                />
-                <Chart
-                    {...this.props}
-                    width={width}
-                    height={height}
-                    data={data}
-                    chartSeries={chartSeries}
-                >
-                    <Bar
-                        chartSeries={chartSeries}
-                        barClassName={barClassName}
-                    />
-                    {xgrid}
-                    {ygrid}
-                    <Xaxis
-                        xAxisClassName={xAxisClassName}
-                    />
-                    <Yaxis
-                        yAxisClassName={yAxisClassName}
-                    />
-                </Chart>
-            </div>
-        )
-    }
+          {xgrid}
+          {ygrid}
+          <Xaxis
+            xAxisClassName={xAxisClassName}
+            xWordWrap={xWordWrap}
+            xGridAxisLineStyle={xGridAxisLineStyle}
+          />
+          <Yaxis
+            yAxisClassName={yAxisClassName}
+            yGridAxisLineStyle={yGridAxisLineStyle}
+          />
+          <Bar
+            chartSeries={chartSeries}
+            barClassName={barClassName}
+          />
+        </Chart>
+      </div>
+    )
+  }
 }
