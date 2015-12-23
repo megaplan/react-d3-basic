@@ -21,8 +21,10 @@ export default class PieChart extends Component {
   }
 
   static defaultProps = {
-    onMouseOver: () => {},
-    onMouseOut: () => {}
+    onMouseOver: () => {
+    },
+    onMouseOut: () => {
+    }
   }
 
   static propTypes = {
@@ -42,30 +44,34 @@ export default class PieChart extends Component {
       chartSeries,
       value,
       name,
-      categoricalColors
-    } = this.props;
+      categoricalColors,
+      showLegend
+      } = this.props;
 
+    var legend;
+    if(showLegend) legend =
+      <Legend
+        {...this.props}
+        width={width}
+        chartSeries={chartSeries}
+        categoricalColors={categoricalColors}
+      />
 
     return (
       <div>
-        <Legend
-          {...this.props}
-          width= {width}
-          chartSeries= {chartSeries}
-          categoricalColors= {categoricalColors}
-        />
+        {legend}
         <ChartPie
           {...this.props}
-          width= {width}
-          height= {height}
-          data= {data}
-          chartSeries= {chartSeries}
-          value = {value}
-          name = {name}
-          >
+          width={width}
+          height={height}
+          data={data}
+          chartSeries={chartSeries}
+          value={value}
+          name={name}
+        >
           <Pie
             {...this.props}
-            chartSeries= {chartSeries}
+            chartSeries={chartSeries}
           />
         </ChartPie>
       </div>
