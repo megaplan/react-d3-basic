@@ -16,7 +16,9 @@ import {
 
 import {
   Area,
-  Chart
+  Line,
+  Chart,
+  Scatter
 } from 'react-d3-shape';
 
 import CommonProps from './commonProps';
@@ -28,7 +30,8 @@ export default class AreaChart extends Component {
   }
 
   static defaultProps = Object.assign(CommonProps, {
-    showScatter: false
+    showScatter: false,
+    showLine: false
   })
 
   static propTypes = {
@@ -49,37 +52,56 @@ export default class AreaChart extends Component {
       chartSeries,
       showXGrid,
       showYGrid,
-      categoricalColors
-    } = this.props;
+      xAxisClassName,
+      yAxisClassName,
+      xWordWrap,
+      xGridAxisLineStyle,
+      yGridAxisLineStyle,
+      categoricalColors,
+      showLine,
+      showScatter
+      } = this.props;
 
-    var xgrid, ygrid;
+    var xgrid, ygrid, line, scatter;
 
-    if(showXGrid) xgrid = <Xgrid/>
-    if(showYGrid) ygrid = <Ygrid/>
+    if(showXGrid) xgrid = <Xgrid gridAxisLineStyle={xGridAxisLineStyle}/>
+    if(showYGrid) ygrid = <Ygrid gridAxisLineStyle={yGridAxisLineStyle}/>
+    if(showLine) line = <Line {...this.props} chartSeries={chartSeries}/>
+    if(showScatter) scatter = <Scatter {...this.props} chartSeries={chartSeries}/>
 
     return (
       <div>
         <Legend
           {...this.props}
-          width= {width}
-          margins= {margins}
-          chartSeries= {chartSeries}
-          categoricalColors= {categoricalColors}
+          width={width}
+          margins={margins}
+          chartSeries={chartSeries}
+          categoricalColors={categoricalColors}
         />
         <Chart
           {...this.props}
-          width= {width}
-          height= {height}
-          data= {data}
-          chartSeries= {chartSeries}
-          >
-          <Area
-            chartSeries= {chartSeries}
-          />
+          width={width}
+          height={height}
+          data={data}
+          chartSeries={chartSeries}
+        >
           {xgrid}
           {ygrid}
-          <Xaxis/>
-          <Yaxis/>
+          <Xaxis
+            xAxisClassName={xAxisClassName}
+            xWordWrap={xWordWrap}
+            xGridAxisLineStyle={xGridAxisLineStyle}
+          />
+          <Yaxis
+            yAxisClassName={yAxisClassName}
+            yGridAxisLineStyle={yGridAxisLineStyle}
+          />
+          <Area
+            {...this.props}
+            chartSeries={chartSeries}
+          />
+          {line}
+          {scatter}
         </Chart>
       </div>
     )
