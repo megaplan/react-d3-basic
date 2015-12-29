@@ -49,37 +49,50 @@ export default class LineChart extends Component {
       chartSeries,
       showXGrid,
       showYGrid,
+      xAxisClassName,
+      yAxisClassName,
+      xWordWrap,
+      xGridAxisLineStyle,
+      yGridAxisLineStyle,
       categoricalColors
-    } = this.props;
+      } = this.props;
 
     var xgrid, ygrid;
 
-    if(showXGrid) xgrid = <Xgrid/>
-    if(showYGrid) ygrid = <Ygrid/>
+    if(showXGrid) xgrid = <Xgrid gridAxisLineStyle={xGridAxisLineStyle}/>
+    if(showYGrid) ygrid = <Ygrid gridAxisLineStyle={yGridAxisLineStyle}/>
 
     return (
       <div>
         <Legend
           {...this.props}
-          width= {width}
-          margins= {margins}
-          chartSeries= {chartSeries}
-          categoricalColors= {categoricalColors}
+          width={width}
+          margins={margins}
+          chartSeries={chartSeries}
+          categoricalColors={categoricalColors}
         />
         <Chart
           {...this.props}
-          width= {width}
-          height= {height}
-          data= {data}
-          chartSeries= {chartSeries}
-          >
-          <Line
-            chartSeries= {chartSeries}
-          />
+          width={width}
+          height={height}
+          data={data}
+          chartSeries={chartSeries}
+        >
           {xgrid}
           {ygrid}
-          <Xaxis/>
-          <Yaxis/>
+          <Xaxis
+            xAxisClassName={xAxisClassName}
+            xWordWrap={xWordWrap}
+            xGridAxisLineStyle={xGridAxisLineStyle}
+          />
+          <Yaxis
+            yAxisClassName={yAxisClassName}
+            yGridAxisLineStyle={yGridAxisLineStyle}
+          />
+          <Line
+            {...this.props}
+            chartSeries={chartSeries}
+          />
         </Chart>
       </div>
     )
