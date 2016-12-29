@@ -28,6 +28,8 @@ export default class BarChart extends Component {
   }
 
   static defaultProps = Object.assign(CommonProps, {
+    onMouseMove: () => {
+    },
     onMouseOver: () => {
     },
     onMouseOut: () => {
@@ -59,6 +61,7 @@ export default class BarChart extends Component {
       xWordWrap,
       onMouseOver,
       onMouseOut,
+      onMouseMove,
       xGridAxisLineStyle,
       yGridAxisLineStyle
       } = this.props;
@@ -99,6 +102,7 @@ export default class BarChart extends Component {
           <Bar
             onMouseOver={onMouseOver}
             onMouseOut={onMouseOut}
+            onMouseMove={onMouseMove}
             chartSeries={chartSeries}
             barClassName={barClassName}
           />
