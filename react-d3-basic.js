@@ -43,7 +43,7 @@ var ReactD3Basic =
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	// Export high level charts
 
@@ -61,51 +61,51 @@ var ReactD3Basic =
 
 	exports.LineChart = _line2['default'];
 
-	var _area = __webpack_require__(70);
+	var _area = __webpack_require__(50);
 
 	var _area2 = _interopRequireDefault(_area);
 
 	exports.AreaChart = _area2['default'];
 
-	var _scatter = __webpack_require__(71);
+	var _scatter = __webpack_require__(51);
 
 	var _scatter2 = _interopRequireDefault(_scatter);
 
 	exports.ScatterPlot = _scatter2['default'];
 
-	var _bar = __webpack_require__(72);
+	var _bar = __webpack_require__(52);
 
 	var _bar2 = _interopRequireDefault(_bar);
 
 	exports.BarChart = _bar2['default'];
 
-	var _bar_group = __webpack_require__(73);
+	var _bar_group = __webpack_require__(53);
 
 	var _bar_group2 = _interopRequireDefault(_bar_group);
 
 	exports.BarGroupChart = _bar_group2['default'];
 
-	var _area_stack = __webpack_require__(74);
+	var _area_stack = __webpack_require__(54);
 
 	var _area_stack2 = _interopRequireDefault(_area_stack);
 
 	exports.AreaStackChart = _area_stack2['default'];
 
-	var _bar_stack = __webpack_require__(75);
+	var _bar_stack = __webpack_require__(55);
 
 	var _bar_stack2 = _interopRequireDefault(_bar_stack);
 
 	exports.BarStackChart = _bar_stack2['default'];
 
-	var _pie = __webpack_require__(76);
+	var _pie = __webpack_require__(56);
 
 	var _pie2 = _interopRequireDefault(_pie);
 
 	exports.PieChart = _pie2['default'];
 
-/***/ },
+/***/ }),
 /* 1 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
@@ -131,9 +131,9 @@ var ReactD3Basic =
 
 	var _reactD3Core = __webpack_require__(3);
 
-	var _reactD3Shape = __webpack_require__(56);
+	var _reactD3Shape = __webpack_require__(36);
 
-	var _commonProps = __webpack_require__(69);
+	var _commonProps = __webpack_require__(49);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
@@ -157,12 +157,17 @@ var ReactD3Basic =
 	      var chartSeries = _props.chartSeries;
 	      var showXGrid = _props.showXGrid;
 	      var showYGrid = _props.showYGrid;
+	      var xAxisClassName = _props.xAxisClassName;
+	      var yAxisClassName = _props.yAxisClassName;
+	      var xWordWrap = _props.xWordWrap;
+	      var xGridAxisLineStyle = _props.xGridAxisLineStyle;
+	      var yGridAxisLineStyle = _props.yGridAxisLineStyle;
 	      var categoricalColors = _props.categoricalColors;
 
 	      var xgrid, ygrid;
 
-	      if (showXGrid) xgrid = _react2['default'].createElement(_reactD3Core.Xgrid, null);
-	      if (showYGrid) ygrid = _react2['default'].createElement(_reactD3Core.Ygrid, null);
+	      if (showXGrid) xgrid = _react2['default'].createElement(_reactD3Core.Xgrid, { gridAxisLineStyle: xGridAxisLineStyle });
+	      if (showYGrid) ygrid = _react2['default'].createElement(_reactD3Core.Ygrid, { gridAxisLineStyle: yGridAxisLineStyle });
 
 	      return _react2['default'].createElement(
 	        'div',
@@ -181,13 +186,20 @@ var ReactD3Basic =
 	            data: data,
 	            chartSeries: chartSeries
 	          }),
-	          _react2['default'].createElement(_reactD3Shape.Line, {
-	            chartSeries: chartSeries
-	          }),
 	          xgrid,
 	          ygrid,
-	          _react2['default'].createElement(_reactD3Core.Xaxis, null),
-	          _react2['default'].createElement(_reactD3Core.Yaxis, null)
+	          _react2['default'].createElement(_reactD3Core.Xaxis, {
+	            xAxisClassName: xAxisClassName,
+	            xWordWrap: xWordWrap,
+	            xGridAxisLineStyle: xGridAxisLineStyle
+	          }),
+	          _react2['default'].createElement(_reactD3Core.Yaxis, {
+	            yAxisClassName: yAxisClassName,
+	            yGridAxisLineStyle: yGridAxisLineStyle
+	          }),
+	          _react2['default'].createElement(_reactD3Shape.Line, _extends({}, this.props, {
+	            chartSeries: chartSeries
+	          }))
 	        )
 	      );
 	    }
@@ -215,15 +227,15 @@ var ReactD3Basic =
 	exports['default'] = LineChart;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 2 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	module.exports = React;
 
-/***/ },
+/***/ }),
 /* 3 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -245,19 +257,19 @@ var ReactD3Basic =
 
 	exports.Chart = _interopRequire(_chartContainer);
 
-	var _axisAxis = __webpack_require__(47);
+	var _axisAxis = __webpack_require__(27);
 
 	exports.Axis = _interopRequire(_axisAxis);
 
-	var _axisXaxis = __webpack_require__(48);
+	var _axisXaxis = __webpack_require__(28);
 
 	exports.Xaxis = _interopRequire(_axisXaxis);
 
-	var _axisYaxis = __webpack_require__(50);
+	var _axisYaxis = __webpack_require__(30);
 
 	exports.Yaxis = _interopRequire(_axisYaxis);
 
-	var _axisLabel = __webpack_require__(49);
+	var _axisLabel = __webpack_require__(29);
 
 	exports.Label = _interopRequire(_axisLabel);
 
@@ -267,15 +279,15 @@ var ReactD3Basic =
 
 	// grid
 
-	var _gridGrid = __webpack_require__(51);
+	var _gridGrid = __webpack_require__(31);
 
 	exports.Grid = _interopRequire(_gridGrid);
 
-	var _gridXgrid = __webpack_require__(52);
+	var _gridXgrid = __webpack_require__(32);
 
 	exports.Xgrid = _interopRequire(_gridXgrid);
 
-	var _gridYgrid = __webpack_require__(53);
+	var _gridYgrid = __webpack_require__(33);
 
 	exports.Ygrid = _interopRequire(_gridYgrid);
 
@@ -290,7 +302,7 @@ var ReactD3Basic =
 	  }
 	});
 
-	var _utilsXDomain = __webpack_require__(54);
+	var _utilsXDomain = __webpack_require__(34);
 
 	Object.defineProperty(exports, 'xDomainCount', {
 	  enumerable: true,
@@ -299,7 +311,7 @@ var ReactD3Basic =
 	  }
 	});
 
-	var _utilsYDomain = __webpack_require__(55);
+	var _utilsYDomain = __webpack_require__(35);
 
 	Object.defineProperty(exports, 'yDomainCount', {
 	  enumerable: true,
@@ -308,9 +320,9 @@ var ReactD3Basic =
 	  }
 	});
 
-/***/ },
+/***/ }),
 /* 4 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
@@ -408,15 +420,15 @@ var ReactD3Basic =
 	exports['default'] = ChartSvg;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 5 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	module.exports = d3;
 
-/***/ },
+/***/ }),
 /* 6 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	"use strict";
 
@@ -430,9 +442,9 @@ var ReactD3Basic =
 	};
 	module.exports = exports["default"];
 
-/***/ },
+/***/ }),
 /* 7 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -482,9 +494,9 @@ var ReactD3Basic =
 	  return func;
 	}
 
-/***/ },
+/***/ }),
 /* 8 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
@@ -566,9 +578,9 @@ var ReactD3Basic =
 	exports['default'] = ChartTitle;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 9 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
@@ -651,9 +663,9 @@ var ReactD3Basic =
 	exports['default'] = ChartContainer;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 10 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
@@ -799,16 +811,22 @@ var ReactD3Basic =
 	exports['default'] = Legend;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 11 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var Element = __webpack_require__(12)
-	var Window = __webpack_require__(46)
+	var Window = __webpack_require__(24)
+	var core = __webpack_require__(25)
+	var anim = __webpack_require__(26)
 
 	var ReactFauxDOM = {
 	  Element: Element,
 	  defaultView: Window,
+	  mixins: {
+	    core: core,
+	    anim: anim
+	  },
 	  createElement: function (nodeName) {
 	    return new Element(nodeName)
 	  },
@@ -827,36 +845,31 @@ var ReactD3Basic =
 	module.exports = ReactFauxDOM
 
 
-/***/ },
+/***/ }),
 /* 12 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(2)
-	var clone = __webpack_require__(13)
-	var styleAttr = __webpack_require__(26)
-	var camelCase = __webpack_require__(27)
-	var assign = __webpack_require__(32)
-	var some = __webpack_require__(35)
-	var mapValues = __webpack_require__(41)
-	var querySelectorAll = __webpack_require__(42)
-
-	function styleCamelCase (name) {
-	  var camel = camelCase(name)
-
-	  if (name[0] === '-') {
-	    return camel[0].toUpperCase() + camel.slice(1)
-	  } else {
-	    return camel
-	  }
-	}
+	var styleAttr = __webpack_require__(13)
+	var querySelectorAll = __webpack_require__(14)
+	var camelCase = __webpack_require__(18)
+	var isString = __webpack_require__(19)
+	var isUndefined = __webpack_require__(20)
+	var assign = __webpack_require__(21)
+	var mapValues = __webpack_require__(22)
+	var styleCamelCase = __webpack_require__(23)
 
 	function Element (nodeName, parentNode) {
 	  this.nodeName = nodeName
 	  this.parentNode = parentNode
-	  this.children = []
+	  this.childNodes = []
 	  this.eventListeners = {}
 	  this.text = ''
+	  var self = this
 	  var props = this.props = {
+	    ref: function (component) {
+	      self.component = component
+	    },
 	    style: {
 	      setProperty: function (name, value) {
 	        props.style[styleCamelCase(name)] = value
@@ -931,7 +944,7 @@ var ReactD3Basic =
 	    return expr.test(name)
 	  })
 
-	  if (some(skipTransformMatches)) {
+	  if (skipTransformMatches.some(Boolean)) {
 	    return name
 	  } else {
 	    return this.attributeNameMappings[name] || camelCase(name)
@@ -939,7 +952,7 @@ var ReactD3Basic =
 	}
 
 	Element.prototype.setAttribute = function (name, value) {
-	  if (name === 'style' && typeof value === 'string') {
+	  if (name === 'style' && isString(value)) {
 	    var styles = styleAttr.parse(value)
 
 	    for (var key in styles) {
@@ -957,7 +970,7 @@ var ReactD3Basic =
 	Element.prototype.getAttributeNode = function (name) {
 	  var value = this.getAttribute(name)
 
-	  if (typeof value !== 'undefined') {
+	  if (!isUndefined(value)) {
 	    return {
 	      value: value,
 	      specified: true
@@ -993,33 +1006,37 @@ var ReactD3Basic =
 
 	Element.prototype.appendChild = function (el) {
 	  el.parentNode = this
-	  this.children.push(el)
+	  this.childNodes.push(el)
 	  return el
 	}
 
 	Element.prototype.insertBefore = function (el, before) {
-	  var index = this.children.indexOf(before)
+	  var index = this.childNodes.indexOf(before)
 	  el.parentNode = this
 
 	  if (index !== -1) {
-	    this.children.splice(index, 0, el)
+	    this.childNodes.splice(index, 0, el)
 	  } else {
-	    this.children.push(el)
+	    this.childNodes.push(el)
 	  }
 
 	  return el
 	}
 
 	Element.prototype.removeChild = function (child) {
-	  var target = this.children.indexOf(child)
-	  this.children.splice(target, 1)
+	  var target = this.childNodes.indexOf(child)
+	  this.childNodes.splice(target, 1)
 	}
 
 	Element.prototype.querySelector = function () {
-	  return this.querySelectorAll.apply(this, arguments)[0]
+	  return this.querySelectorAll.apply(this, arguments)[0] || null
 	}
 
 	Element.prototype.querySelectorAll = function (selector) {
+	  if (!selector) {
+	    throw new Error('Not enough arguments')
+	  }
+
 	  return querySelectorAll(selector, this)
 	}
 
@@ -1071,10 +1088,18 @@ var ReactD3Basic =
 	  }
 	}
 
+	Element.prototype.getBoundingClientRect = function () {
+	  if (!this.component) {
+	    return undefined
+	  }
+
+	  return this.component.getBoundingClientRect()
+	}
+
 	Element.prototype.toReact = function (index) {
 	  index = index || 0
-	  var props = clone(this.props)
-	  props.style = clone(props.style)
+	  var props = assign({}, this.props)
+	  props.style = assign({}, props.style)
 
 	  var originalElement = this
 
@@ -1082,7 +1107,7 @@ var ReactD3Basic =
 	    return 'faux-dom-' + index
 	  }
 
-	  if (typeof props.key === 'undefined') {
+	  if (isUndefined(props.key)) {
 	    props.key = uniqueKey()
 	  }
 
@@ -1144,6 +1169,21 @@ var ReactD3Basic =
 	    set: function (text) {
 	      this.text = text
 	    }
+	  },
+	  children: {
+	    get: function () {
+	      // So far nodes created by this library are all of nodeType 1 (elements),
+	      // but this could change in the future.
+	      return this.childNodes.filter(function (el) {
+	        if (!el.nodeType) {
+	          // It's a React element, we always add it
+	          return true
+	        }
+
+	        // It's a HTML node. We want to filter to have only nodes with type 1
+	        return el.nodeType === 1
+	      })
+	    }
 	  }
 	})
 
@@ -1168,1498 +1208,14 @@ var ReactD3Basic =
 	module.exports = Element
 
 
-/***/ },
+/***/ }),
 /* 13 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-	/**
-	 * lodash 3.0.3 (Custom Build) <https://lodash.com/>
-	 * Build: `lodash modern modularize exports="npm" -o ./`
-	 * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <https://lodash.com/license>
-	 */
-	var baseClone = __webpack_require__(14),
-	    bindCallback = __webpack_require__(24),
-	    isIterateeCall = __webpack_require__(25);
+	
 
-	/**
-	 * Creates a clone of `value`. If `isDeep` is `true` nested objects are cloned,
-	 * otherwise they are assigned by reference. If `customizer` is provided it's
-	 * invoked to produce the cloned values. If `customizer` returns `undefined`
-	 * cloning is handled by the method instead. The `customizer` is bound to
-	 * `thisArg` and invoked with up to three argument; (value [, index|key, object]).
-	 *
-	 * **Note:** This method is loosely based on the
-	 * [structured clone algorithm](http://www.w3.org/TR/html5/infrastructure.html#internal-structured-cloning-algorithm).
-	 * The enumerable properties of `arguments` objects and objects created by
-	 * constructors other than `Object` are cloned to plain `Object` objects. An
-	 * empty object is returned for uncloneable values such as functions, DOM nodes,
-	 * Maps, Sets, and WeakMaps.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @category Lang
-	 * @param {*} value The value to clone.
-	 * @param {boolean} [isDeep] Specify a deep clone.
-	 * @param {Function} [customizer] The function to customize cloning values.
-	 * @param {*} [thisArg] The `this` binding of `customizer`.
-	 * @returns {*} Returns the cloned value.
-	 * @example
-	 *
-	 * var users = [
-	 *   { 'user': 'barney' },
-	 *   { 'user': 'fred' }
-	 * ];
-	 *
-	 * var shallow = _.clone(users);
-	 * shallow[0] === users[0];
-	 * // => true
-	 *
-	 * var deep = _.clone(users, true);
-	 * deep[0] === users[0];
-	 * // => false
-	 *
-	 * // using a customizer callback
-	 * var el = _.clone(document.body, function(value) {
-	 *   if (_.isElement(value)) {
-	 *     return value.cloneNode(false);
-	 *   }
-	 * });
-	 *
-	 * el === document.body
-	 * // => false
-	 * el.nodeName
-	 * // => BODY
-	 * el.childNodes.length;
-	 * // => 0
-	 */
-	function clone(value, isDeep, customizer, thisArg) {
-	  if (isDeep && typeof isDeep != 'boolean' && isIterateeCall(value, isDeep, customizer)) {
-	    isDeep = false;
-	  }
-	  else if (typeof isDeep == 'function') {
-	    thisArg = customizer;
-	    customizer = isDeep;
-	    isDeep = false;
-	  }
-	  return typeof customizer == 'function'
-	    ? baseClone(value, isDeep, bindCallback(customizer, thisArg, 3))
-	    : baseClone(value, isDeep);
-	}
-
-	module.exports = clone;
-
-
-/***/ },
-/* 14 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(global) {/**
-	 * lodash 3.3.0 (Custom Build) <https://lodash.com/>
-	 * Build: `lodash modern modularize exports="npm" -o ./`
-	 * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <https://lodash.com/license>
-	 */
-	var arrayCopy = __webpack_require__(15),
-	    arrayEach = __webpack_require__(16),
-	    baseAssign = __webpack_require__(17),
-	    baseFor = __webpack_require__(23),
-	    isArray = __webpack_require__(22),
-	    keys = __webpack_require__(19);
-
-	/** `Object#toString` result references. */
-	var argsTag = '[object Arguments]',
-	    arrayTag = '[object Array]',
-	    boolTag = '[object Boolean]',
-	    dateTag = '[object Date]',
-	    errorTag = '[object Error]',
-	    funcTag = '[object Function]',
-	    mapTag = '[object Map]',
-	    numberTag = '[object Number]',
-	    objectTag = '[object Object]',
-	    regexpTag = '[object RegExp]',
-	    setTag = '[object Set]',
-	    stringTag = '[object String]',
-	    weakMapTag = '[object WeakMap]';
-
-	var arrayBufferTag = '[object ArrayBuffer]',
-	    float32Tag = '[object Float32Array]',
-	    float64Tag = '[object Float64Array]',
-	    int8Tag = '[object Int8Array]',
-	    int16Tag = '[object Int16Array]',
-	    int32Tag = '[object Int32Array]',
-	    uint8Tag = '[object Uint8Array]',
-	    uint8ClampedTag = '[object Uint8ClampedArray]',
-	    uint16Tag = '[object Uint16Array]',
-	    uint32Tag = '[object Uint32Array]';
-
-	/** Used to match `RegExp` flags from their coerced string values. */
-	var reFlags = /\w*$/;
-
-	/** Used to identify `toStringTag` values supported by `_.clone`. */
-	var cloneableTags = {};
-	cloneableTags[argsTag] = cloneableTags[arrayTag] =
-	cloneableTags[arrayBufferTag] = cloneableTags[boolTag] =
-	cloneableTags[dateTag] = cloneableTags[float32Tag] =
-	cloneableTags[float64Tag] = cloneableTags[int8Tag] =
-	cloneableTags[int16Tag] = cloneableTags[int32Tag] =
-	cloneableTags[numberTag] = cloneableTags[objectTag] =
-	cloneableTags[regexpTag] = cloneableTags[stringTag] =
-	cloneableTags[uint8Tag] = cloneableTags[uint8ClampedTag] =
-	cloneableTags[uint16Tag] = cloneableTags[uint32Tag] = true;
-	cloneableTags[errorTag] = cloneableTags[funcTag] =
-	cloneableTags[mapTag] = cloneableTags[setTag] =
-	cloneableTags[weakMapTag] = false;
-
-	/** Used for native method references. */
-	var objectProto = Object.prototype;
-
-	/** Used to check objects for own properties. */
-	var hasOwnProperty = objectProto.hasOwnProperty;
-
-	/**
-	 * Used to resolve the [`toStringTag`](http://ecma-international.org/ecma-262/6.0/#sec-object.prototype.tostring)
-	 * of values.
-	 */
-	var objToString = objectProto.toString;
-
-	/** Native method references. */
-	var ArrayBuffer = global.ArrayBuffer,
-	    Uint8Array = global.Uint8Array;
-
-	/**
-	 * The base implementation of `_.clone` without support for argument juggling
-	 * and `this` binding `customizer` functions.
-	 *
-	 * @private
-	 * @param {*} value The value to clone.
-	 * @param {boolean} [isDeep] Specify a deep clone.
-	 * @param {Function} [customizer] The function to customize cloning values.
-	 * @param {string} [key] The key of `value`.
-	 * @param {Object} [object] The object `value` belongs to.
-	 * @param {Array} [stackA=[]] Tracks traversed source objects.
-	 * @param {Array} [stackB=[]] Associates clones with source counterparts.
-	 * @returns {*} Returns the cloned value.
-	 */
-	function baseClone(value, isDeep, customizer, key, object, stackA, stackB) {
-	  var result;
-	  if (customizer) {
-	    result = object ? customizer(value, key, object) : customizer(value);
-	  }
-	  if (result !== undefined) {
-	    return result;
-	  }
-	  if (!isObject(value)) {
-	    return value;
-	  }
-	  var isArr = isArray(value);
-	  if (isArr) {
-	    result = initCloneArray(value);
-	    if (!isDeep) {
-	      return arrayCopy(value, result);
-	    }
-	  } else {
-	    var tag = objToString.call(value),
-	        isFunc = tag == funcTag;
-
-	    if (tag == objectTag || tag == argsTag || (isFunc && !object)) {
-	      result = initCloneObject(isFunc ? {} : value);
-	      if (!isDeep) {
-	        return baseAssign(result, value);
-	      }
-	    } else {
-	      return cloneableTags[tag]
-	        ? initCloneByTag(value, tag, isDeep)
-	        : (object ? value : {});
-	    }
-	  }
-	  // Check for circular references and return its corresponding clone.
-	  stackA || (stackA = []);
-	  stackB || (stackB = []);
-
-	  var length = stackA.length;
-	  while (length--) {
-	    if (stackA[length] == value) {
-	      return stackB[length];
-	    }
-	  }
-	  // Add the source value to the stack of traversed objects and associate it with its clone.
-	  stackA.push(value);
-	  stackB.push(result);
-
-	  // Recursively populate clone (susceptible to call stack limits).
-	  (isArr ? arrayEach : baseForOwn)(value, function(subValue, key) {
-	    result[key] = baseClone(subValue, isDeep, customizer, key, value, stackA, stackB);
-	  });
-	  return result;
-	}
-
-	/**
-	 * The base implementation of `_.forOwn` without support for callback
-	 * shorthands and `this` binding.
-	 *
-	 * @private
-	 * @param {Object} object The object to iterate over.
-	 * @param {Function} iteratee The function invoked per iteration.
-	 * @returns {Object} Returns `object`.
-	 */
-	function baseForOwn(object, iteratee) {
-	  return baseFor(object, iteratee, keys);
-	}
-
-	/**
-	 * Creates a clone of the given array buffer.
-	 *
-	 * @private
-	 * @param {ArrayBuffer} buffer The array buffer to clone.
-	 * @returns {ArrayBuffer} Returns the cloned array buffer.
-	 */
-	function bufferClone(buffer) {
-	  var result = new ArrayBuffer(buffer.byteLength),
-	      view = new Uint8Array(result);
-
-	  view.set(new Uint8Array(buffer));
-	  return result;
-	}
-
-	/**
-	 * Initializes an array clone.
-	 *
-	 * @private
-	 * @param {Array} array The array to clone.
-	 * @returns {Array} Returns the initialized clone.
-	 */
-	function initCloneArray(array) {
-	  var length = array.length,
-	      result = new array.constructor(length);
-
-	  // Add array properties assigned by `RegExp#exec`.
-	  if (length && typeof array[0] == 'string' && hasOwnProperty.call(array, 'index')) {
-	    result.index = array.index;
-	    result.input = array.input;
-	  }
-	  return result;
-	}
-
-	/**
-	 * Initializes an object clone.
-	 *
-	 * @private
-	 * @param {Object} object The object to clone.
-	 * @returns {Object} Returns the initialized clone.
-	 */
-	function initCloneObject(object) {
-	  var Ctor = object.constructor;
-	  if (!(typeof Ctor == 'function' && Ctor instanceof Ctor)) {
-	    Ctor = Object;
-	  }
-	  return new Ctor;
-	}
-
-	/**
-	 * Initializes an object clone based on its `toStringTag`.
-	 *
-	 * **Note:** This function only supports cloning values with tags of
-	 * `Boolean`, `Date`, `Error`, `Number`, `RegExp`, or `String`.
-	 *
-	 * @private
-	 * @param {Object} object The object to clone.
-	 * @param {string} tag The `toStringTag` of the object to clone.
-	 * @param {boolean} [isDeep] Specify a deep clone.
-	 * @returns {Object} Returns the initialized clone.
-	 */
-	function initCloneByTag(object, tag, isDeep) {
-	  var Ctor = object.constructor;
-	  switch (tag) {
-	    case arrayBufferTag:
-	      return bufferClone(object);
-
-	    case boolTag:
-	    case dateTag:
-	      return new Ctor(+object);
-
-	    case float32Tag: case float64Tag:
-	    case int8Tag: case int16Tag: case int32Tag:
-	    case uint8Tag: case uint8ClampedTag: case uint16Tag: case uint32Tag:
-	      var buffer = object.buffer;
-	      return new Ctor(isDeep ? bufferClone(buffer) : buffer, object.byteOffset, object.length);
-
-	    case numberTag:
-	    case stringTag:
-	      return new Ctor(object);
-
-	    case regexpTag:
-	      var result = new Ctor(object.source, reFlags.exec(object));
-	      result.lastIndex = object.lastIndex;
-	  }
-	  return result;
-	}
-
-	/**
-	 * Checks if `value` is the [language type](https://es5.github.io/#x8) of `Object`.
-	 * (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
-	 *
-	 * @static
-	 * @memberOf _
-	 * @category Lang
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is an object, else `false`.
-	 * @example
-	 *
-	 * _.isObject({});
-	 * // => true
-	 *
-	 * _.isObject([1, 2, 3]);
-	 * // => true
-	 *
-	 * _.isObject(1);
-	 * // => false
-	 */
-	function isObject(value) {
-	  // Avoid a V8 JIT bug in Chrome 19-20.
-	  // See https://code.google.com/p/v8/issues/detail?id=2291 for more details.
-	  var type = typeof value;
-	  return !!value && (type == 'object' || type == 'function');
-	}
-
-	module.exports = baseClone;
-
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
-
-/***/ },
-/* 15 */
-/***/ function(module, exports) {
-
-	/**
-	 * lodash 3.0.0 (Custom Build) <https://lodash.com/>
-	 * Build: `lodash modern modularize exports="npm" -o ./`
-	 * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.7.0 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <https://lodash.com/license>
-	 */
-
-	/**
-	 * Copies the values of `source` to `array`.
-	 *
-	 * @private
-	 * @param {Array} source The array to copy values from.
-	 * @param {Array} [array=[]] The array to copy values to.
-	 * @returns {Array} Returns `array`.
-	 */
-	function arrayCopy(source, array) {
-	  var index = -1,
-	      length = source.length;
-
-	  array || (array = Array(length));
-	  while (++index < length) {
-	    array[index] = source[index];
-	  }
-	  return array;
-	}
-
-	module.exports = arrayCopy;
-
-
-/***/ },
-/* 16 */
-/***/ function(module, exports) {
-
-	/**
-	 * lodash 3.0.0 (Custom Build) <https://lodash.com/>
-	 * Build: `lodash modern modularize exports="npm" -o ./`
-	 * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.7.0 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <https://lodash.com/license>
-	 */
-
-	/**
-	 * A specialized version of `_.forEach` for arrays without support for callback
-	 * shorthands or `this` binding.
-	 *
-	 * @private
-	 * @param {Array} array The array to iterate over.
-	 * @param {Function} iteratee The function invoked per iteration.
-	 * @returns {Array} Returns `array`.
-	 */
-	function arrayEach(array, iteratee) {
-	  var index = -1,
-	      length = array.length;
-
-	  while (++index < length) {
-	    if (iteratee(array[index], index, array) === false) {
-	      break;
-	    }
-	  }
-	  return array;
-	}
-
-	module.exports = arrayEach;
-
-
-/***/ },
-/* 17 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * lodash 3.2.0 (Custom Build) <https://lodash.com/>
-	 * Build: `lodash modern modularize exports="npm" -o ./`
-	 * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <https://lodash.com/license>
-	 */
-	var baseCopy = __webpack_require__(18),
-	    keys = __webpack_require__(19);
-
-	/**
-	 * The base implementation of `_.assign` without support for argument juggling,
-	 * multiple sources, and `customizer` functions.
-	 *
-	 * @private
-	 * @param {Object} object The destination object.
-	 * @param {Object} source The source object.
-	 * @returns {Object} Returns `object`.
-	 */
-	function baseAssign(object, source) {
-	  return source == null
-	    ? object
-	    : baseCopy(source, keys(source), object);
-	}
-
-	module.exports = baseAssign;
-
-
-/***/ },
-/* 18 */
-/***/ function(module, exports) {
-
-	/**
-	 * lodash 3.0.1 (Custom Build) <https://lodash.com/>
-	 * Build: `lodash modern modularize exports="npm" -o ./`
-	 * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <https://lodash.com/license>
-	 */
-
-	/**
-	 * Copies properties of `source` to `object`.
-	 *
-	 * @private
-	 * @param {Object} source The object to copy properties from.
-	 * @param {Array} props The property names to copy.
-	 * @param {Object} [object={}] The object to copy properties to.
-	 * @returns {Object} Returns `object`.
-	 */
-	function baseCopy(source, props, object) {
-	  object || (object = {});
-
-	  var index = -1,
-	      length = props.length;
-
-	  while (++index < length) {
-	    var key = props[index];
-	    object[key] = source[key];
-	  }
-	  return object;
-	}
-
-	module.exports = baseCopy;
-
-
-/***/ },
-/* 19 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * lodash 3.1.2 (Custom Build) <https://lodash.com/>
-	 * Build: `lodash modern modularize exports="npm" -o ./`
-	 * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <https://lodash.com/license>
-	 */
-	var getNative = __webpack_require__(20),
-	    isArguments = __webpack_require__(21),
-	    isArray = __webpack_require__(22);
-
-	/** Used to detect unsigned integer values. */
-	var reIsUint = /^\d+$/;
-
-	/** Used for native method references. */
-	var objectProto = Object.prototype;
-
-	/** Used to check objects for own properties. */
-	var hasOwnProperty = objectProto.hasOwnProperty;
-
-	/* Native method references for those with the same name as other `lodash` methods. */
-	var nativeKeys = getNative(Object, 'keys');
-
-	/**
-	 * Used as the [maximum length](http://ecma-international.org/ecma-262/6.0/#sec-number.max_safe_integer)
-	 * of an array-like value.
-	 */
-	var MAX_SAFE_INTEGER = 9007199254740991;
-
-	/**
-	 * The base implementation of `_.property` without support for deep paths.
-	 *
-	 * @private
-	 * @param {string} key The key of the property to get.
-	 * @returns {Function} Returns the new function.
-	 */
-	function baseProperty(key) {
-	  return function(object) {
-	    return object == null ? undefined : object[key];
-	  };
-	}
-
-	/**
-	 * Gets the "length" property value of `object`.
-	 *
-	 * **Note:** This function is used to avoid a [JIT bug](https://bugs.webkit.org/show_bug.cgi?id=142792)
-	 * that affects Safari on at least iOS 8.1-8.3 ARM64.
-	 *
-	 * @private
-	 * @param {Object} object The object to query.
-	 * @returns {*} Returns the "length" value.
-	 */
-	var getLength = baseProperty('length');
-
-	/**
-	 * Checks if `value` is array-like.
-	 *
-	 * @private
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is array-like, else `false`.
-	 */
-	function isArrayLike(value) {
-	  return value != null && isLength(getLength(value));
-	}
-
-	/**
-	 * Checks if `value` is a valid array-like index.
-	 *
-	 * @private
-	 * @param {*} value The value to check.
-	 * @param {number} [length=MAX_SAFE_INTEGER] The upper bounds of a valid index.
-	 * @returns {boolean} Returns `true` if `value` is a valid index, else `false`.
-	 */
-	function isIndex(value, length) {
-	  value = (typeof value == 'number' || reIsUint.test(value)) ? +value : -1;
-	  length = length == null ? MAX_SAFE_INTEGER : length;
-	  return value > -1 && value % 1 == 0 && value < length;
-	}
-
-	/**
-	 * Checks if `value` is a valid array-like length.
-	 *
-	 * **Note:** This function is based on [`ToLength`](http://ecma-international.org/ecma-262/6.0/#sec-tolength).
-	 *
-	 * @private
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is a valid length, else `false`.
-	 */
-	function isLength(value) {
-	  return typeof value == 'number' && value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
-	}
-
-	/**
-	 * A fallback implementation of `Object.keys` which creates an array of the
-	 * own enumerable property names of `object`.
-	 *
-	 * @private
-	 * @param {Object} object The object to query.
-	 * @returns {Array} Returns the array of property names.
-	 */
-	function shimKeys(object) {
-	  var props = keysIn(object),
-	      propsLength = props.length,
-	      length = propsLength && object.length;
-
-	  var allowIndexes = !!length && isLength(length) &&
-	    (isArray(object) || isArguments(object));
-
-	  var index = -1,
-	      result = [];
-
-	  while (++index < propsLength) {
-	    var key = props[index];
-	    if ((allowIndexes && isIndex(key, length)) || hasOwnProperty.call(object, key)) {
-	      result.push(key);
-	    }
-	  }
-	  return result;
-	}
-
-	/**
-	 * Checks if `value` is the [language type](https://es5.github.io/#x8) of `Object`.
-	 * (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
-	 *
-	 * @static
-	 * @memberOf _
-	 * @category Lang
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is an object, else `false`.
-	 * @example
-	 *
-	 * _.isObject({});
-	 * // => true
-	 *
-	 * _.isObject([1, 2, 3]);
-	 * // => true
-	 *
-	 * _.isObject(1);
-	 * // => false
-	 */
-	function isObject(value) {
-	  // Avoid a V8 JIT bug in Chrome 19-20.
-	  // See https://code.google.com/p/v8/issues/detail?id=2291 for more details.
-	  var type = typeof value;
-	  return !!value && (type == 'object' || type == 'function');
-	}
-
-	/**
-	 * Creates an array of the own enumerable property names of `object`.
-	 *
-	 * **Note:** Non-object values are coerced to objects. See the
-	 * [ES spec](http://ecma-international.org/ecma-262/6.0/#sec-object.keys)
-	 * for more details.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @category Object
-	 * @param {Object} object The object to query.
-	 * @returns {Array} Returns the array of property names.
-	 * @example
-	 *
-	 * function Foo() {
-	 *   this.a = 1;
-	 *   this.b = 2;
-	 * }
-	 *
-	 * Foo.prototype.c = 3;
-	 *
-	 * _.keys(new Foo);
-	 * // => ['a', 'b'] (iteration order is not guaranteed)
-	 *
-	 * _.keys('hi');
-	 * // => ['0', '1']
-	 */
-	var keys = !nativeKeys ? shimKeys : function(object) {
-	  var Ctor = object == null ? undefined : object.constructor;
-	  if ((typeof Ctor == 'function' && Ctor.prototype === object) ||
-	      (typeof object != 'function' && isArrayLike(object))) {
-	    return shimKeys(object);
-	  }
-	  return isObject(object) ? nativeKeys(object) : [];
-	};
-
-	/**
-	 * Creates an array of the own and inherited enumerable property names of `object`.
-	 *
-	 * **Note:** Non-object values are coerced to objects.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @category Object
-	 * @param {Object} object The object to query.
-	 * @returns {Array} Returns the array of property names.
-	 * @example
-	 *
-	 * function Foo() {
-	 *   this.a = 1;
-	 *   this.b = 2;
-	 * }
-	 *
-	 * Foo.prototype.c = 3;
-	 *
-	 * _.keysIn(new Foo);
-	 * // => ['a', 'b', 'c'] (iteration order is not guaranteed)
-	 */
-	function keysIn(object) {
-	  if (object == null) {
-	    return [];
-	  }
-	  if (!isObject(object)) {
-	    object = Object(object);
-	  }
-	  var length = object.length;
-	  length = (length && isLength(length) &&
-	    (isArray(object) || isArguments(object)) && length) || 0;
-
-	  var Ctor = object.constructor,
-	      index = -1,
-	      isProto = typeof Ctor == 'function' && Ctor.prototype === object,
-	      result = Array(length),
-	      skipIndexes = length > 0;
-
-	  while (++index < length) {
-	    result[index] = (index + '');
-	  }
-	  for (var key in object) {
-	    if (!(skipIndexes && isIndex(key, length)) &&
-	        !(key == 'constructor' && (isProto || !hasOwnProperty.call(object, key)))) {
-	      result.push(key);
-	    }
-	  }
-	  return result;
-	}
-
-	module.exports = keys;
-
-
-/***/ },
-/* 20 */
-/***/ function(module, exports) {
-
-	/**
-	 * lodash 3.9.1 (Custom Build) <https://lodash.com/>
-	 * Build: `lodash modern modularize exports="npm" -o ./`
-	 * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <https://lodash.com/license>
-	 */
-
-	/** `Object#toString` result references. */
-	var funcTag = '[object Function]';
-
-	/** Used to detect host constructors (Safari > 5). */
-	var reIsHostCtor = /^\[object .+?Constructor\]$/;
-
-	/**
-	 * Checks if `value` is object-like.
-	 *
-	 * @private
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
-	 */
-	function isObjectLike(value) {
-	  return !!value && typeof value == 'object';
-	}
-
-	/** Used for native method references. */
-	var objectProto = Object.prototype;
-
-	/** Used to resolve the decompiled source of functions. */
-	var fnToString = Function.prototype.toString;
-
-	/** Used to check objects for own properties. */
-	var hasOwnProperty = objectProto.hasOwnProperty;
-
-	/**
-	 * Used to resolve the [`toStringTag`](http://ecma-international.org/ecma-262/6.0/#sec-object.prototype.tostring)
-	 * of values.
-	 */
-	var objToString = objectProto.toString;
-
-	/** Used to detect if a method is native. */
-	var reIsNative = RegExp('^' +
-	  fnToString.call(hasOwnProperty).replace(/[\\^$.*+?()[\]{}|]/g, '\\$&')
-	  .replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, '$1.*?') + '$'
-	);
-
-	/**
-	 * Gets the native function at `key` of `object`.
-	 *
-	 * @private
-	 * @param {Object} object The object to query.
-	 * @param {string} key The key of the method to get.
-	 * @returns {*} Returns the function if it's native, else `undefined`.
-	 */
-	function getNative(object, key) {
-	  var value = object == null ? undefined : object[key];
-	  return isNative(value) ? value : undefined;
-	}
-
-	/**
-	 * Checks if `value` is classified as a `Function` object.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @category Lang
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
-	 * @example
-	 *
-	 * _.isFunction(_);
-	 * // => true
-	 *
-	 * _.isFunction(/abc/);
-	 * // => false
-	 */
-	function isFunction(value) {
-	  // The use of `Object#toString` avoids issues with the `typeof` operator
-	  // in older versions of Chrome and Safari which return 'function' for regexes
-	  // and Safari 8 equivalents which return 'object' for typed array constructors.
-	  return isObject(value) && objToString.call(value) == funcTag;
-	}
-
-	/**
-	 * Checks if `value` is the [language type](https://es5.github.io/#x8) of `Object`.
-	 * (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
-	 *
-	 * @static
-	 * @memberOf _
-	 * @category Lang
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is an object, else `false`.
-	 * @example
-	 *
-	 * _.isObject({});
-	 * // => true
-	 *
-	 * _.isObject([1, 2, 3]);
-	 * // => true
-	 *
-	 * _.isObject(1);
-	 * // => false
-	 */
-	function isObject(value) {
-	  // Avoid a V8 JIT bug in Chrome 19-20.
-	  // See https://code.google.com/p/v8/issues/detail?id=2291 for more details.
-	  var type = typeof value;
-	  return !!value && (type == 'object' || type == 'function');
-	}
-
-	/**
-	 * Checks if `value` is a native function.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @category Lang
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is a native function, else `false`.
-	 * @example
-	 *
-	 * _.isNative(Array.prototype.push);
-	 * // => true
-	 *
-	 * _.isNative(_);
-	 * // => false
-	 */
-	function isNative(value) {
-	  if (value == null) {
-	    return false;
-	  }
-	  if (isFunction(value)) {
-	    return reIsNative.test(fnToString.call(value));
-	  }
-	  return isObjectLike(value) && reIsHostCtor.test(value);
-	}
-
-	module.exports = getNative;
-
-
-/***/ },
-/* 21 */
-/***/ function(module, exports) {
-
-	/**
-	 * lodash 3.0.4 (Custom Build) <https://lodash.com/>
-	 * Build: `lodash modern modularize exports="npm" -o ./`
-	 * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <https://lodash.com/license>
-	 */
-
-	/**
-	 * Checks if `value` is object-like.
-	 *
-	 * @private
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
-	 */
-	function isObjectLike(value) {
-	  return !!value && typeof value == 'object';
-	}
-
-	/** Used for native method references. */
-	var objectProto = Object.prototype;
-
-	/** Used to check objects for own properties. */
-	var hasOwnProperty = objectProto.hasOwnProperty;
-
-	/** Native method references. */
-	var propertyIsEnumerable = objectProto.propertyIsEnumerable;
-
-	/**
-	 * Used as the [maximum length](http://ecma-international.org/ecma-262/6.0/#sec-number.max_safe_integer)
-	 * of an array-like value.
-	 */
-	var MAX_SAFE_INTEGER = 9007199254740991;
-
-	/**
-	 * The base implementation of `_.property` without support for deep paths.
-	 *
-	 * @private
-	 * @param {string} key The key of the property to get.
-	 * @returns {Function} Returns the new function.
-	 */
-	function baseProperty(key) {
-	  return function(object) {
-	    return object == null ? undefined : object[key];
-	  };
-	}
-
-	/**
-	 * Gets the "length" property value of `object`.
-	 *
-	 * **Note:** This function is used to avoid a [JIT bug](https://bugs.webkit.org/show_bug.cgi?id=142792)
-	 * that affects Safari on at least iOS 8.1-8.3 ARM64.
-	 *
-	 * @private
-	 * @param {Object} object The object to query.
-	 * @returns {*} Returns the "length" value.
-	 */
-	var getLength = baseProperty('length');
-
-	/**
-	 * Checks if `value` is array-like.
-	 *
-	 * @private
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is array-like, else `false`.
-	 */
-	function isArrayLike(value) {
-	  return value != null && isLength(getLength(value));
-	}
-
-	/**
-	 * Checks if `value` is a valid array-like length.
-	 *
-	 * **Note:** This function is based on [`ToLength`](http://ecma-international.org/ecma-262/6.0/#sec-tolength).
-	 *
-	 * @private
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is a valid length, else `false`.
-	 */
-	function isLength(value) {
-	  return typeof value == 'number' && value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
-	}
-
-	/**
-	 * Checks if `value` is classified as an `arguments` object.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @category Lang
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
-	 * @example
-	 *
-	 * _.isArguments(function() { return arguments; }());
-	 * // => true
-	 *
-	 * _.isArguments([1, 2, 3]);
-	 * // => false
-	 */
-	function isArguments(value) {
-	  return isObjectLike(value) && isArrayLike(value) &&
-	    hasOwnProperty.call(value, 'callee') && !propertyIsEnumerable.call(value, 'callee');
-	}
-
-	module.exports = isArguments;
-
-
-/***/ },
-/* 22 */
-/***/ function(module, exports) {
-
-	/**
-	 * lodash 3.0.4 (Custom Build) <https://lodash.com/>
-	 * Build: `lodash modern modularize exports="npm" -o ./`
-	 * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <https://lodash.com/license>
-	 */
-
-	/** `Object#toString` result references. */
-	var arrayTag = '[object Array]',
-	    funcTag = '[object Function]';
-
-	/** Used to detect host constructors (Safari > 5). */
-	var reIsHostCtor = /^\[object .+?Constructor\]$/;
-
-	/**
-	 * Checks if `value` is object-like.
-	 *
-	 * @private
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
-	 */
-	function isObjectLike(value) {
-	  return !!value && typeof value == 'object';
-	}
-
-	/** Used for native method references. */
-	var objectProto = Object.prototype;
-
-	/** Used to resolve the decompiled source of functions. */
-	var fnToString = Function.prototype.toString;
-
-	/** Used to check objects for own properties. */
-	var hasOwnProperty = objectProto.hasOwnProperty;
-
-	/**
-	 * Used to resolve the [`toStringTag`](http://ecma-international.org/ecma-262/6.0/#sec-object.prototype.tostring)
-	 * of values.
-	 */
-	var objToString = objectProto.toString;
-
-	/** Used to detect if a method is native. */
-	var reIsNative = RegExp('^' +
-	  fnToString.call(hasOwnProperty).replace(/[\\^$.*+?()[\]{}|]/g, '\\$&')
-	  .replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, '$1.*?') + '$'
-	);
-
-	/* Native method references for those with the same name as other `lodash` methods. */
-	var nativeIsArray = getNative(Array, 'isArray');
-
-	/**
-	 * Used as the [maximum length](http://ecma-international.org/ecma-262/6.0/#sec-number.max_safe_integer)
-	 * of an array-like value.
-	 */
-	var MAX_SAFE_INTEGER = 9007199254740991;
-
-	/**
-	 * Gets the native function at `key` of `object`.
-	 *
-	 * @private
-	 * @param {Object} object The object to query.
-	 * @param {string} key The key of the method to get.
-	 * @returns {*} Returns the function if it's native, else `undefined`.
-	 */
-	function getNative(object, key) {
-	  var value = object == null ? undefined : object[key];
-	  return isNative(value) ? value : undefined;
-	}
-
-	/**
-	 * Checks if `value` is a valid array-like length.
-	 *
-	 * **Note:** This function is based on [`ToLength`](http://ecma-international.org/ecma-262/6.0/#sec-tolength).
-	 *
-	 * @private
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is a valid length, else `false`.
-	 */
-	function isLength(value) {
-	  return typeof value == 'number' && value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
-	}
-
-	/**
-	 * Checks if `value` is classified as an `Array` object.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @category Lang
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
-	 * @example
-	 *
-	 * _.isArray([1, 2, 3]);
-	 * // => true
-	 *
-	 * _.isArray(function() { return arguments; }());
-	 * // => false
-	 */
-	var isArray = nativeIsArray || function(value) {
-	  return isObjectLike(value) && isLength(value.length) && objToString.call(value) == arrayTag;
-	};
-
-	/**
-	 * Checks if `value` is classified as a `Function` object.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @category Lang
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
-	 * @example
-	 *
-	 * _.isFunction(_);
-	 * // => true
-	 *
-	 * _.isFunction(/abc/);
-	 * // => false
-	 */
-	function isFunction(value) {
-	  // The use of `Object#toString` avoids issues with the `typeof` operator
-	  // in older versions of Chrome and Safari which return 'function' for regexes
-	  // and Safari 8 equivalents which return 'object' for typed array constructors.
-	  return isObject(value) && objToString.call(value) == funcTag;
-	}
-
-	/**
-	 * Checks if `value` is the [language type](https://es5.github.io/#x8) of `Object`.
-	 * (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
-	 *
-	 * @static
-	 * @memberOf _
-	 * @category Lang
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is an object, else `false`.
-	 * @example
-	 *
-	 * _.isObject({});
-	 * // => true
-	 *
-	 * _.isObject([1, 2, 3]);
-	 * // => true
-	 *
-	 * _.isObject(1);
-	 * // => false
-	 */
-	function isObject(value) {
-	  // Avoid a V8 JIT bug in Chrome 19-20.
-	  // See https://code.google.com/p/v8/issues/detail?id=2291 for more details.
-	  var type = typeof value;
-	  return !!value && (type == 'object' || type == 'function');
-	}
-
-	/**
-	 * Checks if `value` is a native function.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @category Lang
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is a native function, else `false`.
-	 * @example
-	 *
-	 * _.isNative(Array.prototype.push);
-	 * // => true
-	 *
-	 * _.isNative(_);
-	 * // => false
-	 */
-	function isNative(value) {
-	  if (value == null) {
-	    return false;
-	  }
-	  if (isFunction(value)) {
-	    return reIsNative.test(fnToString.call(value));
-	  }
-	  return isObjectLike(value) && reIsHostCtor.test(value);
-	}
-
-	module.exports = isArray;
-
-
-/***/ },
-/* 23 */
-/***/ function(module, exports) {
-
-	/**
-	 * lodash 3.0.2 (Custom Build) <https://lodash.com/>
-	 * Build: `lodash modern modularize exports="npm" -o ./`
-	 * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <https://lodash.com/license>
-	 */
-
-	/**
-	 * The base implementation of `baseForIn` and `baseForOwn` which iterates
-	 * over `object` properties returned by `keysFunc` invoking `iteratee` for
-	 * each property. Iteratee functions may exit iteration early by explicitly
-	 * returning `false`.
-	 *
-	 * @private
-	 * @param {Object} object The object to iterate over.
-	 * @param {Function} iteratee The function invoked per iteration.
-	 * @param {Function} keysFunc The function to get the keys of `object`.
-	 * @returns {Object} Returns `object`.
-	 */
-	var baseFor = createBaseFor();
-
-	/**
-	 * Creates a base function for `_.forIn` or `_.forInRight`.
-	 *
-	 * @private
-	 * @param {boolean} [fromRight] Specify iterating from right to left.
-	 * @returns {Function} Returns the new base function.
-	 */
-	function createBaseFor(fromRight) {
-	  return function(object, iteratee, keysFunc) {
-	    var iterable = toObject(object),
-	        props = keysFunc(object),
-	        length = props.length,
-	        index = fromRight ? length : -1;
-
-	    while ((fromRight ? index-- : ++index < length)) {
-	      var key = props[index];
-	      if (iteratee(iterable[key], key, iterable) === false) {
-	        break;
-	      }
-	    }
-	    return object;
-	  };
-	}
-
-	/**
-	 * Converts `value` to an object if it's not one.
-	 *
-	 * @private
-	 * @param {*} value The value to process.
-	 * @returns {Object} Returns the object.
-	 */
-	function toObject(value) {
-	  return isObject(value) ? value : Object(value);
-	}
-
-	/**
-	 * Checks if `value` is the [language type](https://es5.github.io/#x8) of `Object`.
-	 * (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
-	 *
-	 * @static
-	 * @memberOf _
-	 * @category Lang
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is an object, else `false`.
-	 * @example
-	 *
-	 * _.isObject({});
-	 * // => true
-	 *
-	 * _.isObject([1, 2, 3]);
-	 * // => true
-	 *
-	 * _.isObject(1);
-	 * // => false
-	 */
-	function isObject(value) {
-	  // Avoid a V8 JIT bug in Chrome 19-20.
-	  // See https://code.google.com/p/v8/issues/detail?id=2291 for more details.
-	  var type = typeof value;
-	  return !!value && (type == 'object' || type == 'function');
-	}
-
-	module.exports = baseFor;
-
-
-/***/ },
-/* 24 */
-/***/ function(module, exports) {
-
-	/**
-	 * lodash 3.0.1 (Custom Build) <https://lodash.com/>
-	 * Build: `lodash modern modularize exports="npm" -o ./`
-	 * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <https://lodash.com/license>
-	 */
-
-	/**
-	 * A specialized version of `baseCallback` which only supports `this` binding
-	 * and specifying the number of arguments to provide to `func`.
-	 *
-	 * @private
-	 * @param {Function} func The function to bind.
-	 * @param {*} thisArg The `this` binding of `func`.
-	 * @param {number} [argCount] The number of arguments to provide to `func`.
-	 * @returns {Function} Returns the callback.
-	 */
-	function bindCallback(func, thisArg, argCount) {
-	  if (typeof func != 'function') {
-	    return identity;
-	  }
-	  if (thisArg === undefined) {
-	    return func;
-	  }
-	  switch (argCount) {
-	    case 1: return function(value) {
-	      return func.call(thisArg, value);
-	    };
-	    case 3: return function(value, index, collection) {
-	      return func.call(thisArg, value, index, collection);
-	    };
-	    case 4: return function(accumulator, value, index, collection) {
-	      return func.call(thisArg, accumulator, value, index, collection);
-	    };
-	    case 5: return function(value, other, key, object, source) {
-	      return func.call(thisArg, value, other, key, object, source);
-	    };
-	  }
-	  return function() {
-	    return func.apply(thisArg, arguments);
-	  };
-	}
-
-	/**
-	 * This method returns the first argument provided to it.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @category Utility
-	 * @param {*} value Any value.
-	 * @returns {*} Returns `value`.
-	 * @example
-	 *
-	 * var object = { 'user': 'fred' };
-	 *
-	 * _.identity(object) === object;
-	 * // => true
-	 */
-	function identity(value) {
-	  return value;
-	}
-
-	module.exports = bindCallback;
-
-
-/***/ },
-/* 25 */
-/***/ function(module, exports) {
-
-	/**
-	 * lodash 3.0.9 (Custom Build) <https://lodash.com/>
-	 * Build: `lodash modern modularize exports="npm" -o ./`
-	 * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <https://lodash.com/license>
-	 */
-
-	/** Used to detect unsigned integer values. */
-	var reIsUint = /^\d+$/;
-
-	/**
-	 * Used as the [maximum length](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-number.max_safe_integer)
-	 * of an array-like value.
-	 */
-	var MAX_SAFE_INTEGER = 9007199254740991;
-
-	/**
-	 * The base implementation of `_.property` without support for deep paths.
-	 *
-	 * @private
-	 * @param {string} key The key of the property to get.
-	 * @returns {Function} Returns the new function.
-	 */
-	function baseProperty(key) {
-	  return function(object) {
-	    return object == null ? undefined : object[key];
-	  };
-	}
-
-	/**
-	 * Gets the "length" property value of `object`.
-	 *
-	 * **Note:** This function is used to avoid a [JIT bug](https://bugs.webkit.org/show_bug.cgi?id=142792)
-	 * that affects Safari on at least iOS 8.1-8.3 ARM64.
-	 *
-	 * @private
-	 * @param {Object} object The object to query.
-	 * @returns {*} Returns the "length" value.
-	 */
-	var getLength = baseProperty('length');
-
-	/**
-	 * Checks if `value` is array-like.
-	 *
-	 * @private
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is array-like, else `false`.
-	 */
-	function isArrayLike(value) {
-	  return value != null && isLength(getLength(value));
-	}
-
-	/**
-	 * Checks if `value` is a valid array-like index.
-	 *
-	 * @private
-	 * @param {*} value The value to check.
-	 * @param {number} [length=MAX_SAFE_INTEGER] The upper bounds of a valid index.
-	 * @returns {boolean} Returns `true` if `value` is a valid index, else `false`.
-	 */
-	function isIndex(value, length) {
-	  value = (typeof value == 'number' || reIsUint.test(value)) ? +value : -1;
-	  length = length == null ? MAX_SAFE_INTEGER : length;
-	  return value > -1 && value % 1 == 0 && value < length;
-	}
-
-	/**
-	 * Checks if the provided arguments are from an iteratee call.
-	 *
-	 * @private
-	 * @param {*} value The potential iteratee value argument.
-	 * @param {*} index The potential iteratee index or key argument.
-	 * @param {*} object The potential iteratee object argument.
-	 * @returns {boolean} Returns `true` if the arguments are from an iteratee call, else `false`.
-	 */
-	function isIterateeCall(value, index, object) {
-	  if (!isObject(object)) {
-	    return false;
-	  }
-	  var type = typeof index;
-	  if (type == 'number'
-	      ? (isArrayLike(object) && isIndex(index, object.length))
-	      : (type == 'string' && index in object)) {
-	    var other = object[index];
-	    return value === value ? (value === other) : (other !== other);
-	  }
-	  return false;
-	}
-
-	/**
-	 * Checks if `value` is a valid array-like length.
-	 *
-	 * **Note:** This function is based on [`ToLength`](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-tolength).
-	 *
-	 * @private
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is a valid length, else `false`.
-	 */
-	function isLength(value) {
-	  return typeof value == 'number' && value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
-	}
-
-	/**
-	 * Checks if `value` is the [language type](https://es5.github.io/#x8) of `Object`.
-	 * (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
-	 *
-	 * @static
-	 * @memberOf _
-	 * @category Lang
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is an object, else `false`.
-	 * @example
-	 *
-	 * _.isObject({});
-	 * // => true
-	 *
-	 * _.isObject([1, 2, 3]);
-	 * // => true
-	 *
-	 * _.isObject(1);
-	 * // => false
-	 */
-	function isObject(value) {
-	  // Avoid a V8 JIT bug in Chrome 19-20.
-	  // See https://code.google.com/p/v8/issues/detail?id=2291 for more details.
-	  var type = typeof value;
-	  return !!value && (type == 'object' || type == 'function');
-	}
-
-	module.exports = isIterateeCall;
-
-
-/***/ },
-/* 26 */
-/***/ function(module, exports) {
+	/*:: type Attr = { [key: string]: string | number } */
+	/*:: type Opts = { preserveNumbers: ?boolean } */
 
 	/*
 
@@ -2673,27 +1229,86 @@ var ReactD3Basic =
 
 	Convert a style attribute string to an object.
 
-	- input: string (eg. anything you might see in a style attribute)
-	- return: object
-
 	*/
-	function parse (raw) {
-	  var trim = function (s) { return s.trim(); };
-	  var obj = {};
-	  raw
-	    .split(';')
-	    .map(trim)
-	    .filter(Boolean)
-	    .forEach(function (item) {
-	      // split with `.indexOf` rather than `.split` because the value may also contain colons.
-	      var pos = item.indexOf(':');
-	      var key = item.substr(0, pos).trim();
-	      var val = item.substr(pos + 1).trim();
 
-	      obj[key] = val;
-	    });
+	/*:: declare function parse (raw: string, opts: ?Opts): Attr */
+	function parse(raw, opts) {
+	  opts = opts || {};
+
+	  var preserveNumbers = opts.preserveNumbers;
+	  var trim = function (s) {
+	    return s.trim();
+	  };
+	  var obj = {};
+
+	  getKeyValueChunks(raw).map(trim).filter(Boolean).forEach(function (item) {
+	    // split with `.indexOf` rather than `.split` because the value may also contain colons.
+	    var pos = item.indexOf(':');
+	    var key = item.substr(0, pos).trim();
+	    var val = item.substr(pos + 1).trim();
+	    if (preserveNumbers && isNumeric(val)) {
+	      val = Number(val);
+	    }
+
+	    obj[key] = val;
+	  });
 
 	  return obj;
+	}
+
+	/*
+
+	`isNumeric`
+	----
+
+	Check if a value is numeric.
+	Via: https://stackoverflow.com/a/1830844/9324
+
+	*/
+
+	/*:: declare function isNumeric (n: any): boolean */
+
+	function isNumeric(n) {
+	  return !isNaN(parseFloat(n)) && isFinite(n);
+	}
+
+	/*
+
+	`getKeyValueChunks`
+	----
+
+	Split a string into chunks matching `<key>: <value>`
+
+	*/
+	/*:: declare function getKeyValueChunks (raw: string): Array<string> */
+	function getKeyValueChunks(raw) {
+	  var chunks = [];
+	  var offset = 0;
+	  var sep = ';';
+	  var hasUnclosedUrl = /url\([^\)]+$/;
+	  var chunk = '';
+	  var nextSplit;
+	  while (offset < raw.length) {
+	    nextSplit = raw.indexOf(sep, offset);
+	    if (nextSplit === -1) {
+	      nextSplit = raw.length;
+	    }
+
+	    chunk += raw.substring(offset, nextSplit);
+
+	    // data URIs can contain semicolons, so make sure we get the whole thing
+	    if (hasUnclosedUrl.test(chunk)) {
+	      chunk += ';';
+	      offset = nextSplit + 1;
+	      continue;
+	    }
+
+	    chunks.push(chunk);
+	    chunk = '';
+	    offset = nextSplit + 1;
+	  }
+
+	  return chunks;
 	}
 
 	/*
@@ -2703,16 +1318,12 @@ var ReactD3Basic =
 
 	Convert an object into an attribute string
 
-	- input: object
-	- return: string
-
 	*/
-	function stringify (obj) {
-	  return Object.keys(obj)
-	    .map(function (key) {
-	      return key + ':' + obj[key];
-	    })
-	    .join(';');
+	/*:: declare function stringify (obj: Attr): string */
+	function stringify(obj) {
+	  return Object.keys(obj).map(function (key) {
+	    return key + ':' + obj[key];
+	  }).join(';');
 	}
 
 	/*
@@ -2722,1863 +1333,25 @@ var ReactD3Basic =
 
 	Normalize an attribute string (eg. collapse duplicates)
 
-	- input: string
-	- return: string
-
 	*/
-	function normalize (str) {
-	  return stringify(parse(str));
+	/*:: declare function normalize (str: string, opts: ?Opts): string */
+	function normalize(str, opts) {
+	  return stringify(parse(str, opts));
 	}
 
 	module.exports.parse = parse;
 	module.exports.stringify = stringify;
 	module.exports.normalize = normalize;
 
-
-/***/ },
-/* 27 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * lodash 3.0.1 (Custom Build) <https://lodash.com/>
-	 * Build: `lodash modern modularize exports="npm" -o ./`
-	 * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.7.0 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <https://lodash.com/license>
-	 */
-	var createCompounder = __webpack_require__(28);
-
-	/**
-	 * Converts `string` to camel case.
-	 * See [Wikipedia](https://en.wikipedia.org/wiki/CamelCase) for more details.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @category String
-	 * @param {string} [string=''] The string to convert.
-	 * @returns {string} Returns the camel cased string.
-	 * @example
-	 *
-	 * _.camelCase('Foo Bar');
-	 * // => 'fooBar'
-	 *
-	 * _.camelCase('--foo-bar');
-	 * // => 'fooBar'
-	 *
-	 * _.camelCase('__foo_bar__');
-	 * // => 'fooBar'
-	 */
-	var camelCase = createCompounder(function(result, word, index) {
-	  word = word.toLowerCase();
-	  return result + (index ? (word.charAt(0).toUpperCase() + word.slice(1)) : word);
-	});
-
-	module.exports = camelCase;
-
-
-/***/ },
-/* 28 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * lodash 3.0.0 (Custom Build) <https://lodash.com/>
-	 * Build: `lodash modern modularize exports="npm" -o ./`
-	 * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.7.0 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <https://lodash.com/license>
-	 */
-	var deburr = __webpack_require__(29),
-	    words = __webpack_require__(31);
-
-	/**
-	 * Creates a function that produces compound words out of the words in a
-	 * given string.
-	 *
-	 * @private
-	 * @param {Function} callback The function to combine each word.
-	 * @returns {Function} Returns the new compounder function.
-	 */
-	function createCompounder(callback) {
-	  return function(string) {
-	    var index = -1,
-	        array = words(deburr(string)),
-	        length = array.length,
-	        result = '';
-
-	    while (++index < length) {
-	      result = callback(result, array[index], index);
-	    }
-	    return result;
-	  };
-	}
-
-	module.exports = createCompounder;
-
-
-/***/ },
-/* 29 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * lodash 3.0.2 (Custom Build) <https://lodash.com/>
-	 * Build: `lodash modern modularize exports="npm" -o ./`
-	 * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <https://lodash.com/license>
-	 */
-	var baseToString = __webpack_require__(30);
-
-	/** Used to match [combining diacritical marks](https://en.wikipedia.org/wiki/Combining_Diacritical_Marks). */
-	var reComboMark = /[\u0300-\u036f\ufe20-\ufe23]/g;
-
-	/** Used to match latin-1 supplementary letters (excluding mathematical operators). */
-	var reLatin1 = /[\xc0-\xd6\xd8-\xde\xdf-\xf6\xf8-\xff]/g;
-
-	/** Used to map latin-1 supplementary letters to basic latin letters. */
-	var deburredLetters = {
-	  '\xc0': 'A',  '\xc1': 'A', '\xc2': 'A', '\xc3': 'A', '\xc4': 'A', '\xc5': 'A',
-	  '\xe0': 'a',  '\xe1': 'a', '\xe2': 'a', '\xe3': 'a', '\xe4': 'a', '\xe5': 'a',
-	  '\xc7': 'C',  '\xe7': 'c',
-	  '\xd0': 'D',  '\xf0': 'd',
-	  '\xc8': 'E',  '\xc9': 'E', '\xca': 'E', '\xcb': 'E',
-	  '\xe8': 'e',  '\xe9': 'e', '\xea': 'e', '\xeb': 'e',
-	  '\xcC': 'I',  '\xcd': 'I', '\xce': 'I', '\xcf': 'I',
-	  '\xeC': 'i',  '\xed': 'i', '\xee': 'i', '\xef': 'i',
-	  '\xd1': 'N',  '\xf1': 'n',
-	  '\xd2': 'O',  '\xd3': 'O', '\xd4': 'O', '\xd5': 'O', '\xd6': 'O', '\xd8': 'O',
-	  '\xf2': 'o',  '\xf3': 'o', '\xf4': 'o', '\xf5': 'o', '\xf6': 'o', '\xf8': 'o',
-	  '\xd9': 'U',  '\xda': 'U', '\xdb': 'U', '\xdc': 'U',
-	  '\xf9': 'u',  '\xfa': 'u', '\xfb': 'u', '\xfc': 'u',
-	  '\xdd': 'Y',  '\xfd': 'y', '\xff': 'y',
-	  '\xc6': 'Ae', '\xe6': 'ae',
-	  '\xde': 'Th', '\xfe': 'th',
-	  '\xdf': 'ss'
-	};
-
-	/**
-	 * Used by `_.deburr` to convert latin-1 supplementary letters to basic latin letters.
-	 *
-	 * @private
-	 * @param {string} letter The matched letter to deburr.
-	 * @returns {string} Returns the deburred letter.
-	 */
-	function deburrLetter(letter) {
-	  return deburredLetters[letter];
-	}
-
-	/**
-	 * Deburrs `string` by converting [latin-1 supplementary letters](https://en.wikipedia.org/wiki/Latin-1_Supplement_(Unicode_block)#Character_table)
-	 * to basic latin letters and removing [combining diacritical marks](https://en.wikipedia.org/wiki/Combining_Diacritical_Marks).
-	 *
-	 * @static
-	 * @memberOf _
-	 * @category String
-	 * @param {string} [string=''] The string to deburr.
-	 * @returns {string} Returns the deburred string.
-	 * @example
-	 *
-	 * _.deburr('déjà vu');
-	 * // => 'deja vu'
-	 */
-	function deburr(string) {
-	  string = baseToString(string);
-	  return string && string.replace(reLatin1, deburrLetter).replace(reComboMark, '');
-	}
-
-	module.exports = deburr;
-
-
-/***/ },
-/* 30 */
-/***/ function(module, exports) {
-
-	/**
-	 * lodash 3.0.1 (Custom Build) <https://lodash.com/>
-	 * Build: `lodash modern modularize exports="npm" -o ./`
-	 * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <https://lodash.com/license>
-	 */
-
-	/**
-	 * Converts `value` to a string if it's not one. An empty string is returned
-	 * for `null` or `undefined` values.
-	 *
-	 * @private
-	 * @param {*} value The value to process.
-	 * @returns {string} Returns the string.
-	 */
-	function baseToString(value) {
-	  return value == null ? '' : (value + '');
-	}
-
-	module.exports = baseToString;
-
-
-/***/ },
-/* 31 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * lodash 3.0.2 (Custom Build) <https://lodash.com/>
-	 * Build: `lodash modern modularize exports="npm" -o ./`
-	 * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <https://lodash.com/license>
-	 */
-	var baseToString = __webpack_require__(30),
-	    isIterateeCall = __webpack_require__(25);
-
-	/** Used to match words to create compound words. */
-	var reWords = (function() {
-	  var upper = '[A-Z\\xc0-\\xd6\\xd8-\\xde]',
-	      lower = '[a-z\\xdf-\\xf6\\xf8-\\xff]+';
-
-	  return RegExp(upper + '+(?=' + upper + lower + ')|' + upper + '?' + lower + '|' + upper + '+|[0-9]+', 'g');
-	}());
-
-	/**
-	 * Splits `string` into an array of its words.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @category String
-	 * @param {string} [string=''] The string to inspect.
-	 * @param {RegExp|string} [pattern] The pattern to match words.
-	 * @param- {Object} [guard] Enables use as a callback for functions like `_.map`.
-	 * @returns {Array} Returns the words of `string`.
-	 * @example
-	 *
-	 * _.words('fred, barney, & pebbles');
-	 * // => ['fred', 'barney', 'pebbles']
-	 *
-	 * _.words('fred, barney, & pebbles', /[^, ]+/g);
-	 * // => ['fred', 'barney', '&', 'pebbles']
-	 */
-	function words(string, pattern, guard) {
-	  if (guard && isIterateeCall(string, pattern, guard)) {
-	    pattern = undefined;
-	  }
-	  string = baseToString(string);
-	  return string.match(pattern || reWords) || [];
-	}
-
-	module.exports = words;
-
-
-/***/ },
-/* 32 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * lodash 3.2.0 (Custom Build) <https://lodash.com/>
-	 * Build: `lodash modern modularize exports="npm" -o ./`
-	 * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <https://lodash.com/license>
-	 */
-	var baseAssign = __webpack_require__(17),
-	    createAssigner = __webpack_require__(33),
-	    keys = __webpack_require__(19);
-
-	/**
-	 * A specialized version of `_.assign` for customizing assigned values without
-	 * support for argument juggling, multiple sources, and `this` binding `customizer`
-	 * functions.
-	 *
-	 * @private
-	 * @param {Object} object The destination object.
-	 * @param {Object} source The source object.
-	 * @param {Function} customizer The function to customize assigned values.
-	 * @returns {Object} Returns `object`.
-	 */
-	function assignWith(object, source, customizer) {
-	  var index = -1,
-	      props = keys(source),
-	      length = props.length;
-
-	  while (++index < length) {
-	    var key = props[index],
-	        value = object[key],
-	        result = customizer(value, source[key], key, object, source);
-
-	    if ((result === result ? (result !== value) : (value === value)) ||
-	        (value === undefined && !(key in object))) {
-	      object[key] = result;
-	    }
-	  }
-	  return object;
-	}
-
-	/**
-	 * Assigns own enumerable properties of source object(s) to the destination
-	 * object. Subsequent sources overwrite property assignments of previous sources.
-	 * If `customizer` is provided it is invoked to produce the assigned values.
-	 * The `customizer` is bound to `thisArg` and invoked with five arguments:
-	 * (objectValue, sourceValue, key, object, source).
-	 *
-	 * **Note:** This method mutates `object` and is based on
-	 * [`Object.assign`](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-object.assign).
-	 *
-	 * @static
-	 * @memberOf _
-	 * @alias extend
-	 * @category Object
-	 * @param {Object} object The destination object.
-	 * @param {...Object} [sources] The source objects.
-	 * @param {Function} [customizer] The function to customize assigned values.
-	 * @param {*} [thisArg] The `this` binding of `customizer`.
-	 * @returns {Object} Returns `object`.
-	 * @example
-	 *
-	 * _.assign({ 'user': 'barney' }, { 'age': 40 }, { 'user': 'fred' });
-	 * // => { 'user': 'fred', 'age': 40 }
-	 *
-	 * // using a customizer callback
-	 * var defaults = _.partialRight(_.assign, function(value, other) {
-	 *   return _.isUndefined(value) ? other : value;
-	 * });
-	 *
-	 * defaults({ 'user': 'barney' }, { 'age': 36 }, { 'user': 'fred' });
-	 * // => { 'user': 'barney', 'age': 36 }
-	 */
-	var assign = createAssigner(function(object, source, customizer) {
-	  return customizer
-	    ? assignWith(object, source, customizer)
-	    : baseAssign(object, source);
-	});
-
-	module.exports = assign;
-
-
-/***/ },
-/* 33 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * lodash 3.1.1 (Custom Build) <https://lodash.com/>
-	 * Build: `lodash modern modularize exports="npm" -o ./`
-	 * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <https://lodash.com/license>
-	 */
-	var bindCallback = __webpack_require__(24),
-	    isIterateeCall = __webpack_require__(25),
-	    restParam = __webpack_require__(34);
-
-	/**
-	 * Creates a function that assigns properties of source object(s) to a given
-	 * destination object.
-	 *
-	 * **Note:** This function is used to create `_.assign`, `_.defaults`, and `_.merge`.
-	 *
-	 * @private
-	 * @param {Function} assigner The function to assign values.
-	 * @returns {Function} Returns the new assigner function.
-	 */
-	function createAssigner(assigner) {
-	  return restParam(function(object, sources) {
-	    var index = -1,
-	        length = object == null ? 0 : sources.length,
-	        customizer = length > 2 ? sources[length - 2] : undefined,
-	        guard = length > 2 ? sources[2] : undefined,
-	        thisArg = length > 1 ? sources[length - 1] : undefined;
-
-	    if (typeof customizer == 'function') {
-	      customizer = bindCallback(customizer, thisArg, 5);
-	      length -= 2;
-	    } else {
-	      customizer = typeof thisArg == 'function' ? thisArg : undefined;
-	      length -= (customizer ? 1 : 0);
-	    }
-	    if (guard && isIterateeCall(sources[0], sources[1], guard)) {
-	      customizer = length < 3 ? undefined : customizer;
-	      length = 1;
-	    }
-	    while (++index < length) {
-	      var source = sources[index];
-	      if (source) {
-	        assigner(object, source, customizer);
-	      }
-	    }
-	    return object;
-	  });
-	}
-
-	module.exports = createAssigner;
-
-
-/***/ },
-/* 34 */
-/***/ function(module, exports) {
-
-	/**
-	 * lodash 3.6.1 (Custom Build) <https://lodash.com/>
-	 * Build: `lodash modern modularize exports="npm" -o ./`
-	 * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <https://lodash.com/license>
-	 */
-
-	/** Used as the `TypeError` message for "Functions" methods. */
-	var FUNC_ERROR_TEXT = 'Expected a function';
-
-	/* Native method references for those with the same name as other `lodash` methods. */
-	var nativeMax = Math.max;
-
-	/**
-	 * Creates a function that invokes `func` with the `this` binding of the
-	 * created function and arguments from `start` and beyond provided as an array.
-	 *
-	 * **Note:** This method is based on the [rest parameter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters).
-	 *
-	 * @static
-	 * @memberOf _
-	 * @category Function
-	 * @param {Function} func The function to apply a rest parameter to.
-	 * @param {number} [start=func.length-1] The start position of the rest parameter.
-	 * @returns {Function} Returns the new function.
-	 * @example
-	 *
-	 * var say = _.restParam(function(what, names) {
-	 *   return what + ' ' + _.initial(names).join(', ') +
-	 *     (_.size(names) > 1 ? ', & ' : '') + _.last(names);
-	 * });
-	 *
-	 * say('hello', 'fred', 'barney', 'pebbles');
-	 * // => 'hello fred, barney, & pebbles'
-	 */
-	function restParam(func, start) {
-	  if (typeof func != 'function') {
-	    throw new TypeError(FUNC_ERROR_TEXT);
-	  }
-	  start = nativeMax(start === undefined ? (func.length - 1) : (+start || 0), 0);
-	  return function() {
-	    var args = arguments,
-	        index = -1,
-	        length = nativeMax(args.length - start, 0),
-	        rest = Array(length);
-
-	    while (++index < length) {
-	      rest[index] = args[start + index];
-	    }
-	    switch (start) {
-	      case 0: return func.call(this, rest);
-	      case 1: return func.call(this, args[0], rest);
-	      case 2: return func.call(this, args[0], args[1], rest);
-	    }
-	    var otherArgs = Array(start + 1);
-	    index = -1;
-	    while (++index < start) {
-	      otherArgs[index] = args[index];
-	    }
-	    otherArgs[start] = rest;
-	    return func.apply(this, otherArgs);
-	  };
-	}
-
-	module.exports = restParam;
-
-
-/***/ },
-/* 35 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * lodash 3.2.3 (Custom Build) <https://lodash.com/>
-	 * Build: `lodash modern modularize exports="npm" -o ./`
-	 * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <https://lodash.com/license>
-	 */
-	var baseCallback = __webpack_require__(36),
-	    baseEach = __webpack_require__(40),
-	    isIterateeCall = __webpack_require__(25),
-	    isArray = __webpack_require__(22);
-
-	/**
-	 * A specialized version of `_.some` for arrays without support for callback
-	 * shorthands and `this` binding.
-	 *
-	 * @private
-	 * @param {Array} array The array to iterate over.
-	 * @param {Function} predicate The function invoked per iteration.
-	 * @returns {boolean} Returns `true` if any element passes the predicate check,
-	 *  else `false`.
-	 */
-	function arraySome(array, predicate) {
-	  var index = -1,
-	      length = array.length;
-
-	  while (++index < length) {
-	    if (predicate(array[index], index, array)) {
-	      return true;
-	    }
-	  }
-	  return false;
-	}
-
-	/**
-	 * The base implementation of `_.some` without support for callback shorthands
-	 * and `this` binding.
-	 *
-	 * @private
-	 * @param {Array|Object|string} collection The collection to iterate over.
-	 * @param {Function} predicate The function invoked per iteration.
-	 * @returns {boolean} Returns `true` if any element passes the predicate check,
-	 *  else `false`.
-	 */
-	function baseSome(collection, predicate) {
-	  var result;
-
-	  baseEach(collection, function(value, index, collection) {
-	    result = predicate(value, index, collection);
-	    return !result;
-	  });
-	  return !!result;
-	}
-
-	/**
-	 * Checks if `predicate` returns truthy for **any** element of `collection`.
-	 * The function returns as soon as it finds a passing value and does not iterate
-	 * over the entire collection. The predicate is bound to `thisArg` and invoked
-	 * with three arguments: (value, index|key, collection).
-	 *
-	 * If a property name is provided for `predicate` the created `_.property`
-	 * style callback returns the property value of the given element.
-	 *
-	 * If a value is also provided for `thisArg` the created `_.matchesProperty`
-	 * style callback returns `true` for elements that have a matching property
-	 * value, else `false`.
-	 *
-	 * If an object is provided for `predicate` the created `_.matches` style
-	 * callback returns `true` for elements that have the properties of the given
-	 * object, else `false`.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @alias any
-	 * @category Collection
-	 * @param {Array|Object|string} collection The collection to iterate over.
-	 * @param {Function|Object|string} [predicate=_.identity] The function invoked
-	 *  per iteration.
-	 * @param {*} [thisArg] The `this` binding of `predicate`.
-	 * @returns {boolean} Returns `true` if any element passes the predicate check,
-	 *  else `false`.
-	 * @example
-	 *
-	 * _.some([null, 0, 'yes', false], Boolean);
-	 * // => true
-	 *
-	 * var users = [
-	 *   { 'user': 'barney', 'active': true },
-	 *   { 'user': 'fred',   'active': false }
-	 * ];
-	 *
-	 * // using the `_.matches` callback shorthand
-	 * _.some(users, { 'user': 'barney', 'active': false });
-	 * // => false
-	 *
-	 * // using the `_.matchesProperty` callback shorthand
-	 * _.some(users, 'active', false);
-	 * // => true
-	 *
-	 * // using the `_.property` callback shorthand
-	 * _.some(users, 'active');
-	 * // => true
-	 */
-	function some(collection, predicate, thisArg) {
-	  var func = isArray(collection) ? arraySome : baseSome;
-	  if (thisArg && isIterateeCall(collection, predicate, thisArg)) {
-	    predicate = undefined;
-	  }
-	  if (typeof predicate != 'function' || thisArg !== undefined) {
-	    predicate = baseCallback(predicate, thisArg, 3);
-	  }
-	  return func(collection, predicate);
-	}
-
-	module.exports = some;
-
-
-/***/ },
-/* 36 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * lodash 3.3.1 (Custom Build) <https://lodash.com/>
-	 * Build: `lodash modern modularize exports="npm" -o ./`
-	 * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <https://lodash.com/license>
-	 */
-	var baseIsEqual = __webpack_require__(37),
-	    bindCallback = __webpack_require__(24),
-	    isArray = __webpack_require__(22),
-	    pairs = __webpack_require__(39);
-
-	/** Used to match property names within property paths. */
-	var reIsDeepProp = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\n\\]|\\.)*?\1)\]/,
-	    reIsPlainProp = /^\w*$/,
-	    rePropName = /[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\n\\]|\\.)*?)\2)\]/g;
-
-	/** Used to match backslashes in property paths. */
-	var reEscapeChar = /\\(\\)?/g;
-
-	/**
-	 * Converts `value` to a string if it's not one. An empty string is returned
-	 * for `null` or `undefined` values.
-	 *
-	 * @private
-	 * @param {*} value The value to process.
-	 * @returns {string} Returns the string.
-	 */
-	function baseToString(value) {
-	  return value == null ? '' : (value + '');
-	}
-
-	/**
-	 * The base implementation of `_.callback` which supports specifying the
-	 * number of arguments to provide to `func`.
-	 *
-	 * @private
-	 * @param {*} [func=_.identity] The value to convert to a callback.
-	 * @param {*} [thisArg] The `this` binding of `func`.
-	 * @param {number} [argCount] The number of arguments to provide to `func`.
-	 * @returns {Function} Returns the callback.
-	 */
-	function baseCallback(func, thisArg, argCount) {
-	  var type = typeof func;
-	  if (type == 'function') {
-	    return thisArg === undefined
-	      ? func
-	      : bindCallback(func, thisArg, argCount);
-	  }
-	  if (func == null) {
-	    return identity;
-	  }
-	  if (type == 'object') {
-	    return baseMatches(func);
-	  }
-	  return thisArg === undefined
-	    ? property(func)
-	    : baseMatchesProperty(func, thisArg);
-	}
-
-	/**
-	 * The base implementation of `get` without support for string paths
-	 * and default values.
-	 *
-	 * @private
-	 * @param {Object} object The object to query.
-	 * @param {Array} path The path of the property to get.
-	 * @param {string} [pathKey] The key representation of path.
-	 * @returns {*} Returns the resolved value.
-	 */
-	function baseGet(object, path, pathKey) {
-	  if (object == null) {
-	    return;
-	  }
-	  if (pathKey !== undefined && pathKey in toObject(object)) {
-	    path = [pathKey];
-	  }
-	  var index = 0,
-	      length = path.length;
-
-	  while (object != null && index < length) {
-	    object = object[path[index++]];
-	  }
-	  return (index && index == length) ? object : undefined;
-	}
-
-	/**
-	 * The base implementation of `_.isMatch` without support for callback
-	 * shorthands and `this` binding.
-	 *
-	 * @private
-	 * @param {Object} object The object to inspect.
-	 * @param {Array} matchData The propery names, values, and compare flags to match.
-	 * @param {Function} [customizer] The function to customize comparing objects.
-	 * @returns {boolean} Returns `true` if `object` is a match, else `false`.
-	 */
-	function baseIsMatch(object, matchData, customizer) {
-	  var index = matchData.length,
-	      length = index,
-	      noCustomizer = !customizer;
-
-	  if (object == null) {
-	    return !length;
-	  }
-	  object = toObject(object);
-	  while (index--) {
-	    var data = matchData[index];
-	    if ((noCustomizer && data[2])
-	          ? data[1] !== object[data[0]]
-	          : !(data[0] in object)
-	        ) {
-	      return false;
-	    }
-	  }
-	  while (++index < length) {
-	    data = matchData[index];
-	    var key = data[0],
-	        objValue = object[key],
-	        srcValue = data[1];
-
-	    if (noCustomizer && data[2]) {
-	      if (objValue === undefined && !(key in object)) {
-	        return false;
-	      }
-	    } else {
-	      var result = customizer ? customizer(objValue, srcValue, key) : undefined;
-	      if (!(result === undefined ? baseIsEqual(srcValue, objValue, customizer, true) : result)) {
-	        return false;
-	      }
-	    }
-	  }
-	  return true;
-	}
-
-	/**
-	 * The base implementation of `_.matches` which does not clone `source`.
-	 *
-	 * @private
-	 * @param {Object} source The object of property values to match.
-	 * @returns {Function} Returns the new function.
-	 */
-	function baseMatches(source) {
-	  var matchData = getMatchData(source);
-	  if (matchData.length == 1 && matchData[0][2]) {
-	    var key = matchData[0][0],
-	        value = matchData[0][1];
-
-	    return function(object) {
-	      if (object == null) {
-	        return false;
-	      }
-	      return object[key] === value && (value !== undefined || (key in toObject(object)));
-	    };
-	  }
-	  return function(object) {
-	    return baseIsMatch(object, matchData);
-	  };
-	}
-
-	/**
-	 * The base implementation of `_.matchesProperty` which does not clone `srcValue`.
-	 *
-	 * @private
-	 * @param {string} path The path of the property to get.
-	 * @param {*} srcValue The value to compare.
-	 * @returns {Function} Returns the new function.
-	 */
-	function baseMatchesProperty(path, srcValue) {
-	  var isArr = isArray(path),
-	      isCommon = isKey(path) && isStrictComparable(srcValue),
-	      pathKey = (path + '');
-
-	  path = toPath(path);
-	  return function(object) {
-	    if (object == null) {
-	      return false;
-	    }
-	    var key = pathKey;
-	    object = toObject(object);
-	    if ((isArr || !isCommon) && !(key in object)) {
-	      object = path.length == 1 ? object : baseGet(object, baseSlice(path, 0, -1));
-	      if (object == null) {
-	        return false;
-	      }
-	      key = last(path);
-	      object = toObject(object);
-	    }
-	    return object[key] === srcValue
-	      ? (srcValue !== undefined || (key in object))
-	      : baseIsEqual(srcValue, object[key], undefined, true);
-	  };
-	}
-
-	/**
-	 * The base implementation of `_.property` without support for deep paths.
-	 *
-	 * @private
-	 * @param {string} key The key of the property to get.
-	 * @returns {Function} Returns the new function.
-	 */
-	function baseProperty(key) {
-	  return function(object) {
-	    return object == null ? undefined : object[key];
-	  };
-	}
-
-	/**
-	 * A specialized version of `baseProperty` which supports deep paths.
-	 *
-	 * @private
-	 * @param {Array|string} path The path of the property to get.
-	 * @returns {Function} Returns the new function.
-	 */
-	function basePropertyDeep(path) {
-	  var pathKey = (path + '');
-	  path = toPath(path);
-	  return function(object) {
-	    return baseGet(object, path, pathKey);
-	  };
-	}
-
-	/**
-	 * The base implementation of `_.slice` without an iteratee call guard.
-	 *
-	 * @private
-	 * @param {Array} array The array to slice.
-	 * @param {number} [start=0] The start position.
-	 * @param {number} [end=array.length] The end position.
-	 * @returns {Array} Returns the slice of `array`.
-	 */
-	function baseSlice(array, start, end) {
-	  var index = -1,
-	      length = array.length;
-
-	  start = start == null ? 0 : (+start || 0);
-	  if (start < 0) {
-	    start = -start > length ? 0 : (length + start);
-	  }
-	  end = (end === undefined || end > length) ? length : (+end || 0);
-	  if (end < 0) {
-	    end += length;
-	  }
-	  length = start > end ? 0 : ((end - start) >>> 0);
-	  start >>>= 0;
-
-	  var result = Array(length);
-	  while (++index < length) {
-	    result[index] = array[index + start];
-	  }
-	  return result;
-	}
-
-	/**
-	 * Gets the propery names, values, and compare flags of `object`.
-	 *
-	 * @private
-	 * @param {Object} object The object to query.
-	 * @returns {Array} Returns the match data of `object`.
-	 */
-	function getMatchData(object) {
-	  var result = pairs(object),
-	      length = result.length;
-
-	  while (length--) {
-	    result[length][2] = isStrictComparable(result[length][1]);
-	  }
-	  return result;
-	}
-
-	/**
-	 * Checks if `value` is a property name and not a property path.
-	 *
-	 * @private
-	 * @param {*} value The value to check.
-	 * @param {Object} [object] The object to query keys on.
-	 * @returns {boolean} Returns `true` if `value` is a property name, else `false`.
-	 */
-	function isKey(value, object) {
-	  var type = typeof value;
-	  if ((type == 'string' && reIsPlainProp.test(value)) || type == 'number') {
-	    return true;
-	  }
-	  if (isArray(value)) {
-	    return false;
-	  }
-	  var result = !reIsDeepProp.test(value);
-	  return result || (object != null && value in toObject(object));
-	}
-
-	/**
-	 * Checks if `value` is suitable for strict equality comparisons, i.e. `===`.
-	 *
-	 * @private
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` if suitable for strict
-	 *  equality comparisons, else `false`.
-	 */
-	function isStrictComparable(value) {
-	  return value === value && !isObject(value);
-	}
-
-	/**
-	 * Converts `value` to an object if it's not one.
-	 *
-	 * @private
-	 * @param {*} value The value to process.
-	 * @returns {Object} Returns the object.
-	 */
-	function toObject(value) {
-	  return isObject(value) ? value : Object(value);
-	}
-
-	/**
-	 * Converts `value` to property path array if it's not one.
-	 *
-	 * @private
-	 * @param {*} value The value to process.
-	 * @returns {Array} Returns the property path array.
-	 */
-	function toPath(value) {
-	  if (isArray(value)) {
-	    return value;
-	  }
-	  var result = [];
-	  baseToString(value).replace(rePropName, function(match, number, quote, string) {
-	    result.push(quote ? string.replace(reEscapeChar, '$1') : (number || match));
-	  });
-	  return result;
-	}
-
-	/**
-	 * Gets the last element of `array`.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @category Array
-	 * @param {Array} array The array to query.
-	 * @returns {*} Returns the last element of `array`.
-	 * @example
-	 *
-	 * _.last([1, 2, 3]);
-	 * // => 3
-	 */
-	function last(array) {
-	  var length = array ? array.length : 0;
-	  return length ? array[length - 1] : undefined;
-	}
-
-	/**
-	 * Checks if `value` is the [language type](https://es5.github.io/#x8) of `Object`.
-	 * (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
-	 *
-	 * @static
-	 * @memberOf _
-	 * @category Lang
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is an object, else `false`.
-	 * @example
-	 *
-	 * _.isObject({});
-	 * // => true
-	 *
-	 * _.isObject([1, 2, 3]);
-	 * // => true
-	 *
-	 * _.isObject(1);
-	 * // => false
-	 */
-	function isObject(value) {
-	  // Avoid a V8 JIT bug in Chrome 19-20.
-	  // See https://code.google.com/p/v8/issues/detail?id=2291 for more details.
-	  var type = typeof value;
-	  return !!value && (type == 'object' || type == 'function');
-	}
-
-	/**
-	 * This method returns the first argument provided to it.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @category Utility
-	 * @param {*} value Any value.
-	 * @returns {*} Returns `value`.
-	 * @example
-	 *
-	 * var object = { 'user': 'fred' };
-	 *
-	 * _.identity(object) === object;
-	 * // => true
-	 */
-	function identity(value) {
-	  return value;
-	}
-
-	/**
-	 * Creates a function that returns the property value at `path` on a
-	 * given object.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @category Utility
-	 * @param {Array|string} path The path of the property to get.
-	 * @returns {Function} Returns the new function.
-	 * @example
-	 *
-	 * var objects = [
-	 *   { 'a': { 'b': { 'c': 2 } } },
-	 *   { 'a': { 'b': { 'c': 1 } } }
-	 * ];
-	 *
-	 * _.map(objects, _.property('a.b.c'));
-	 * // => [2, 1]
-	 *
-	 * _.pluck(_.sortBy(objects, _.property(['a', 'b', 'c'])), 'a.b.c');
-	 * // => [1, 2]
-	 */
-	function property(path) {
-	  return isKey(path) ? baseProperty(path) : basePropertyDeep(path);
-	}
-
-	module.exports = baseCallback;
-
-
-/***/ },
-/* 37 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * lodash 3.0.7 (Custom Build) <https://lodash.com/>
-	 * Build: `lodash modern modularize exports="npm" -o ./`
-	 * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <https://lodash.com/license>
-	 */
-	var isArray = __webpack_require__(22),
-	    isTypedArray = __webpack_require__(38),
-	    keys = __webpack_require__(19);
-
-	/** `Object#toString` result references. */
-	var argsTag = '[object Arguments]',
-	    arrayTag = '[object Array]',
-	    boolTag = '[object Boolean]',
-	    dateTag = '[object Date]',
-	    errorTag = '[object Error]',
-	    numberTag = '[object Number]',
-	    objectTag = '[object Object]',
-	    regexpTag = '[object RegExp]',
-	    stringTag = '[object String]';
-
-	/**
-	 * Checks if `value` is object-like.
-	 *
-	 * @private
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
-	 */
-	function isObjectLike(value) {
-	  return !!value && typeof value == 'object';
-	}
-
-	/** Used for native method references. */
-	var objectProto = Object.prototype;
-
-	/** Used to check objects for own properties. */
-	var hasOwnProperty = objectProto.hasOwnProperty;
-
-	/**
-	 * Used to resolve the [`toStringTag`](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-object.prototype.tostring)
-	 * of values.
-	 */
-	var objToString = objectProto.toString;
-
-	/**
-	 * A specialized version of `_.some` for arrays without support for callback
-	 * shorthands and `this` binding.
-	 *
-	 * @private
-	 * @param {Array} array The array to iterate over.
-	 * @param {Function} predicate The function invoked per iteration.
-	 * @returns {boolean} Returns `true` if any element passes the predicate check,
-	 *  else `false`.
-	 */
-	function arraySome(array, predicate) {
-	  var index = -1,
-	      length = array.length;
-
-	  while (++index < length) {
-	    if (predicate(array[index], index, array)) {
-	      return true;
-	    }
-	  }
-	  return false;
-	}
-
-	/**
-	 * The base implementation of `_.isEqual` without support for `this` binding
-	 * `customizer` functions.
-	 *
-	 * @private
-	 * @param {*} value The value to compare.
-	 * @param {*} other The other value to compare.
-	 * @param {Function} [customizer] The function to customize comparing values.
-	 * @param {boolean} [isLoose] Specify performing partial comparisons.
-	 * @param {Array} [stackA] Tracks traversed `value` objects.
-	 * @param {Array} [stackB] Tracks traversed `other` objects.
-	 * @returns {boolean} Returns `true` if the values are equivalent, else `false`.
-	 */
-	function baseIsEqual(value, other, customizer, isLoose, stackA, stackB) {
-	  if (value === other) {
-	    return true;
-	  }
-	  if (value == null || other == null || (!isObject(value) && !isObjectLike(other))) {
-	    return value !== value && other !== other;
-	  }
-	  return baseIsEqualDeep(value, other, baseIsEqual, customizer, isLoose, stackA, stackB);
-	}
-
-	/**
-	 * A specialized version of `baseIsEqual` for arrays and objects which performs
-	 * deep comparisons and tracks traversed objects enabling objects with circular
-	 * references to be compared.
-	 *
-	 * @private
-	 * @param {Object} object The object to compare.
-	 * @param {Object} other The other object to compare.
-	 * @param {Function} equalFunc The function to determine equivalents of values.
-	 * @param {Function} [customizer] The function to customize comparing objects.
-	 * @param {boolean} [isLoose] Specify performing partial comparisons.
-	 * @param {Array} [stackA=[]] Tracks traversed `value` objects.
-	 * @param {Array} [stackB=[]] Tracks traversed `other` objects.
-	 * @returns {boolean} Returns `true` if the objects are equivalent, else `false`.
-	 */
-	function baseIsEqualDeep(object, other, equalFunc, customizer, isLoose, stackA, stackB) {
-	  var objIsArr = isArray(object),
-	      othIsArr = isArray(other),
-	      objTag = arrayTag,
-	      othTag = arrayTag;
-
-	  if (!objIsArr) {
-	    objTag = objToString.call(object);
-	    if (objTag == argsTag) {
-	      objTag = objectTag;
-	    } else if (objTag != objectTag) {
-	      objIsArr = isTypedArray(object);
-	    }
-	  }
-	  if (!othIsArr) {
-	    othTag = objToString.call(other);
-	    if (othTag == argsTag) {
-	      othTag = objectTag;
-	    } else if (othTag != objectTag) {
-	      othIsArr = isTypedArray(other);
-	    }
-	  }
-	  var objIsObj = objTag == objectTag,
-	      othIsObj = othTag == objectTag,
-	      isSameTag = objTag == othTag;
-
-	  if (isSameTag && !(objIsArr || objIsObj)) {
-	    return equalByTag(object, other, objTag);
-	  }
-	  if (!isLoose) {
-	    var objIsWrapped = objIsObj && hasOwnProperty.call(object, '__wrapped__'),
-	        othIsWrapped = othIsObj && hasOwnProperty.call(other, '__wrapped__');
-
-	    if (objIsWrapped || othIsWrapped) {
-	      return equalFunc(objIsWrapped ? object.value() : object, othIsWrapped ? other.value() : other, customizer, isLoose, stackA, stackB);
-	    }
-	  }
-	  if (!isSameTag) {
-	    return false;
-	  }
-	  // Assume cyclic values are equal.
-	  // For more information on detecting circular references see https://es5.github.io/#JO.
-	  stackA || (stackA = []);
-	  stackB || (stackB = []);
-
-	  var length = stackA.length;
-	  while (length--) {
-	    if (stackA[length] == object) {
-	      return stackB[length] == other;
-	    }
-	  }
-	  // Add `object` and `other` to the stack of traversed objects.
-	  stackA.push(object);
-	  stackB.push(other);
-
-	  var result = (objIsArr ? equalArrays : equalObjects)(object, other, equalFunc, customizer, isLoose, stackA, stackB);
-
-	  stackA.pop();
-	  stackB.pop();
-
-	  return result;
-	}
-
-	/**
-	 * A specialized version of `baseIsEqualDeep` for arrays with support for
-	 * partial deep comparisons.
-	 *
-	 * @private
-	 * @param {Array} array The array to compare.
-	 * @param {Array} other The other array to compare.
-	 * @param {Function} equalFunc The function to determine equivalents of values.
-	 * @param {Function} [customizer] The function to customize comparing arrays.
-	 * @param {boolean} [isLoose] Specify performing partial comparisons.
-	 * @param {Array} [stackA] Tracks traversed `value` objects.
-	 * @param {Array} [stackB] Tracks traversed `other` objects.
-	 * @returns {boolean} Returns `true` if the arrays are equivalent, else `false`.
-	 */
-	function equalArrays(array, other, equalFunc, customizer, isLoose, stackA, stackB) {
-	  var index = -1,
-	      arrLength = array.length,
-	      othLength = other.length;
-
-	  if (arrLength != othLength && !(isLoose && othLength > arrLength)) {
-	    return false;
-	  }
-	  // Ignore non-index properties.
-	  while (++index < arrLength) {
-	    var arrValue = array[index],
-	        othValue = other[index],
-	        result = customizer ? customizer(isLoose ? othValue : arrValue, isLoose ? arrValue : othValue, index) : undefined;
-
-	    if (result !== undefined) {
-	      if (result) {
-	        continue;
-	      }
-	      return false;
-	    }
-	    // Recursively compare arrays (susceptible to call stack limits).
-	    if (isLoose) {
-	      if (!arraySome(other, function(othValue) {
-	            return arrValue === othValue || equalFunc(arrValue, othValue, customizer, isLoose, stackA, stackB);
-	          })) {
-	        return false;
-	      }
-	    } else if (!(arrValue === othValue || equalFunc(arrValue, othValue, customizer, isLoose, stackA, stackB))) {
-	      return false;
-	    }
-	  }
-	  return true;
-	}
-
-	/**
-	 * A specialized version of `baseIsEqualDeep` for comparing objects of
-	 * the same `toStringTag`.
-	 *
-	 * **Note:** This function only supports comparing values with tags of
-	 * `Boolean`, `Date`, `Error`, `Number`, `RegExp`, or `String`.
-	 *
-	 * @private
-	 * @param {Object} value The object to compare.
-	 * @param {Object} other The other object to compare.
-	 * @param {string} tag The `toStringTag` of the objects to compare.
-	 * @returns {boolean} Returns `true` if the objects are equivalent, else `false`.
-	 */
-	function equalByTag(object, other, tag) {
-	  switch (tag) {
-	    case boolTag:
-	    case dateTag:
-	      // Coerce dates and booleans to numbers, dates to milliseconds and booleans
-	      // to `1` or `0` treating invalid dates coerced to `NaN` as not equal.
-	      return +object == +other;
-
-	    case errorTag:
-	      return object.name == other.name && object.message == other.message;
-
-	    case numberTag:
-	      // Treat `NaN` vs. `NaN` as equal.
-	      return (object != +object)
-	        ? other != +other
-	        : object == +other;
-
-	    case regexpTag:
-	    case stringTag:
-	      // Coerce regexes to strings and treat strings primitives and string
-	      // objects as equal. See https://es5.github.io/#x15.10.6.4 for more details.
-	      return object == (other + '');
-	  }
-	  return false;
-	}
-
-	/**
-	 * A specialized version of `baseIsEqualDeep` for objects with support for
-	 * partial deep comparisons.
-	 *
-	 * @private
-	 * @param {Object} object The object to compare.
-	 * @param {Object} other The other object to compare.
-	 * @param {Function} equalFunc The function to determine equivalents of values.
-	 * @param {Function} [customizer] The function to customize comparing values.
-	 * @param {boolean} [isLoose] Specify performing partial comparisons.
-	 * @param {Array} [stackA] Tracks traversed `value` objects.
-	 * @param {Array} [stackB] Tracks traversed `other` objects.
-	 * @returns {boolean} Returns `true` if the objects are equivalent, else `false`.
-	 */
-	function equalObjects(object, other, equalFunc, customizer, isLoose, stackA, stackB) {
-	  var objProps = keys(object),
-	      objLength = objProps.length,
-	      othProps = keys(other),
-	      othLength = othProps.length;
-
-	  if (objLength != othLength && !isLoose) {
-	    return false;
-	  }
-	  var index = objLength;
-	  while (index--) {
-	    var key = objProps[index];
-	    if (!(isLoose ? key in other : hasOwnProperty.call(other, key))) {
-	      return false;
-	    }
-	  }
-	  var skipCtor = isLoose;
-	  while (++index < objLength) {
-	    key = objProps[index];
-	    var objValue = object[key],
-	        othValue = other[key],
-	        result = customizer ? customizer(isLoose ? othValue : objValue, isLoose? objValue : othValue, key) : undefined;
-
-	    // Recursively compare objects (susceptible to call stack limits).
-	    if (!(result === undefined ? equalFunc(objValue, othValue, customizer, isLoose, stackA, stackB) : result)) {
-	      return false;
-	    }
-	    skipCtor || (skipCtor = key == 'constructor');
-	  }
-	  if (!skipCtor) {
-	    var objCtor = object.constructor,
-	        othCtor = other.constructor;
-
-	    // Non `Object` object instances with different constructors are not equal.
-	    if (objCtor != othCtor &&
-	        ('constructor' in object && 'constructor' in other) &&
-	        !(typeof objCtor == 'function' && objCtor instanceof objCtor &&
-	          typeof othCtor == 'function' && othCtor instanceof othCtor)) {
-	      return false;
-	    }
-	  }
-	  return true;
-	}
-
-	/**
-	 * Checks if `value` is the [language type](https://es5.github.io/#x8) of `Object`.
-	 * (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
-	 *
-	 * @static
-	 * @memberOf _
-	 * @category Lang
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is an object, else `false`.
-	 * @example
-	 *
-	 * _.isObject({});
-	 * // => true
-	 *
-	 * _.isObject([1, 2, 3]);
-	 * // => true
-	 *
-	 * _.isObject(1);
-	 * // => false
-	 */
-	function isObject(value) {
-	  // Avoid a V8 JIT bug in Chrome 19-20.
-	  // See https://code.google.com/p/v8/issues/detail?id=2291 for more details.
-	  var type = typeof value;
-	  return !!value && (type == 'object' || type == 'function');
-	}
-
-	module.exports = baseIsEqual;
-
-
-/***/ },
-/* 38 */
-/***/ function(module, exports) {
-
-	/**
-	 * lodash 3.0.2 (Custom Build) <https://lodash.com/>
-	 * Build: `lodash modern modularize exports="npm" -o ./`
-	 * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <https://lodash.com/license>
-	 */
-
-	/** `Object#toString` result references. */
-	var argsTag = '[object Arguments]',
-	    arrayTag = '[object Array]',
-	    boolTag = '[object Boolean]',
-	    dateTag = '[object Date]',
-	    errorTag = '[object Error]',
-	    funcTag = '[object Function]',
-	    mapTag = '[object Map]',
-	    numberTag = '[object Number]',
-	    objectTag = '[object Object]',
-	    regexpTag = '[object RegExp]',
-	    setTag = '[object Set]',
-	    stringTag = '[object String]',
-	    weakMapTag = '[object WeakMap]';
-
-	var arrayBufferTag = '[object ArrayBuffer]',
-	    float32Tag = '[object Float32Array]',
-	    float64Tag = '[object Float64Array]',
-	    int8Tag = '[object Int8Array]',
-	    int16Tag = '[object Int16Array]',
-	    int32Tag = '[object Int32Array]',
-	    uint8Tag = '[object Uint8Array]',
-	    uint8ClampedTag = '[object Uint8ClampedArray]',
-	    uint16Tag = '[object Uint16Array]',
-	    uint32Tag = '[object Uint32Array]';
-
-	/** Used to identify `toStringTag` values of typed arrays. */
-	var typedArrayTags = {};
-	typedArrayTags[float32Tag] = typedArrayTags[float64Tag] =
-	typedArrayTags[int8Tag] = typedArrayTags[int16Tag] =
-	typedArrayTags[int32Tag] = typedArrayTags[uint8Tag] =
-	typedArrayTags[uint8ClampedTag] = typedArrayTags[uint16Tag] =
-	typedArrayTags[uint32Tag] = true;
-	typedArrayTags[argsTag] = typedArrayTags[arrayTag] =
-	typedArrayTags[arrayBufferTag] = typedArrayTags[boolTag] =
-	typedArrayTags[dateTag] = typedArrayTags[errorTag] =
-	typedArrayTags[funcTag] = typedArrayTags[mapTag] =
-	typedArrayTags[numberTag] = typedArrayTags[objectTag] =
-	typedArrayTags[regexpTag] = typedArrayTags[setTag] =
-	typedArrayTags[stringTag] = typedArrayTags[weakMapTag] = false;
-
-	/**
-	 * Checks if `value` is object-like.
-	 *
-	 * @private
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
-	 */
-	function isObjectLike(value) {
-	  return !!value && typeof value == 'object';
-	}
-
-	/** Used for native method references. */
-	var objectProto = Object.prototype;
-
-	/**
-	 * Used to resolve the [`toStringTag`](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-object.prototype.tostring)
-	 * of values.
-	 */
-	var objToString = objectProto.toString;
-
-	/**
-	 * Used as the [maximum length](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-number.max_safe_integer)
-	 * of an array-like value.
-	 */
-	var MAX_SAFE_INTEGER = 9007199254740991;
-
-	/**
-	 * Checks if `value` is a valid array-like length.
-	 *
-	 * **Note:** This function is based on [`ToLength`](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-tolength).
-	 *
-	 * @private
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is a valid length, else `false`.
-	 */
-	function isLength(value) {
-	  return typeof value == 'number' && value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
-	}
-
-	/**
-	 * Checks if `value` is classified as a typed array.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @category Lang
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
-	 * @example
-	 *
-	 * _.isTypedArray(new Uint8Array);
-	 * // => true
-	 *
-	 * _.isTypedArray([]);
-	 * // => false
-	 */
-	function isTypedArray(value) {
-	  return isObjectLike(value) && isLength(value.length) && !!typedArrayTags[objToString.call(value)];
-	}
-
-	module.exports = isTypedArray;
-
-
-/***/ },
-/* 39 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * lodash 3.0.1 (Custom Build) <https://lodash.com/>
-	 * Build: `lodash modern modularize exports="npm" -o ./`
-	 * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <https://lodash.com/license>
-	 */
-	var keys = __webpack_require__(19);
-
-	/**
-	 * Converts `value` to an object if it's not one.
-	 *
-	 * @private
-	 * @param {*} value The value to process.
-	 * @returns {Object} Returns the object.
-	 */
-	function toObject(value) {
-	  return isObject(value) ? value : Object(value);
-	}
-
-	/**
-	 * Checks if `value` is the [language type](https://es5.github.io/#x8) of `Object`.
-	 * (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
-	 *
-	 * @static
-	 * @memberOf _
-	 * @category Lang
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is an object, else `false`.
-	 * @example
-	 *
-	 * _.isObject({});
-	 * // => true
-	 *
-	 * _.isObject([1, 2, 3]);
-	 * // => true
-	 *
-	 * _.isObject(1);
-	 * // => false
-	 */
-	function isObject(value) {
-	  // Avoid a V8 JIT bug in Chrome 19-20.
-	  // See https://code.google.com/p/v8/issues/detail?id=2291 for more details.
-	  var type = typeof value;
-	  return !!value && (type == 'object' || type == 'function');
-	}
-
-	/**
-	 * Creates a two dimensional array of the key-value pairs for `object`,
-	 * e.g. `[[key1, value1], [key2, value2]]`.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @category Object
-	 * @param {Object} object The object to query.
-	 * @returns {Array} Returns the new array of key-value pairs.
-	 * @example
-	 *
-	 * _.pairs({ 'barney': 36, 'fred': 40 });
-	 * // => [['barney', 36], ['fred', 40]] (iteration order is not guaranteed)
-	 */
-	function pairs(object) {
-	  object = toObject(object);
-
-	  var index = -1,
-	      props = keys(object),
-	      length = props.length,
-	      result = Array(length);
-
-	  while (++index < length) {
-	    var key = props[index];
-	    result[index] = [key, object[key]];
-	  }
-	  return result;
-	}
-
-	module.exports = pairs;
-
-
-/***/ },
-/* 40 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * lodash 3.0.4 (Custom Build) <https://lodash.com/>
-	 * Build: `lodash modern modularize exports="npm" -o ./`
-	 * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <https://lodash.com/license>
-	 */
-	var keys = __webpack_require__(19);
-
-	/**
-	 * Used as the [maximum length](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-number.max_safe_integer)
-	 * of an array-like value.
-	 */
-	var MAX_SAFE_INTEGER = 9007199254740991;
-
-	/**
-	 * The base implementation of `_.forEach` without support for callback
-	 * shorthands and `this` binding.
-	 *
-	 * @private
-	 * @param {Array|Object|string} collection The collection to iterate over.
-	 * @param {Function} iteratee The function invoked per iteration.
-	 * @returns {Array|Object|string} Returns `collection`.
-	 */
-	var baseEach = createBaseEach(baseForOwn);
-
-	/**
-	 * The base implementation of `baseForIn` and `baseForOwn` which iterates
-	 * over `object` properties returned by `keysFunc` invoking `iteratee` for
-	 * each property. Iteratee functions may exit iteration early by explicitly
-	 * returning `false`.
-	 *
-	 * @private
-	 * @param {Object} object The object to iterate over.
-	 * @param {Function} iteratee The function invoked per iteration.
-	 * @param {Function} keysFunc The function to get the keys of `object`.
-	 * @returns {Object} Returns `object`.
-	 */
-	var baseFor = createBaseFor();
-
-	/**
-	 * The base implementation of `_.forOwn` without support for callback
-	 * shorthands and `this` binding.
-	 *
-	 * @private
-	 * @param {Object} object The object to iterate over.
-	 * @param {Function} iteratee The function invoked per iteration.
-	 * @returns {Object} Returns `object`.
-	 */
-	function baseForOwn(object, iteratee) {
-	  return baseFor(object, iteratee, keys);
-	}
-
-	/**
-	 * The base implementation of `_.property` without support for deep paths.
-	 *
-	 * @private
-	 * @param {string} key The key of the property to get.
-	 * @returns {Function} Returns the new function.
-	 */
-	function baseProperty(key) {
-	  return function(object) {
-	    return object == null ? undefined : object[key];
-	  };
-	}
-
-	/**
-	 * Creates a `baseEach` or `baseEachRight` function.
-	 *
-	 * @private
-	 * @param {Function} eachFunc The function to iterate over a collection.
-	 * @param {boolean} [fromRight] Specify iterating from right to left.
-	 * @returns {Function} Returns the new base function.
-	 */
-	function createBaseEach(eachFunc, fromRight) {
-	  return function(collection, iteratee) {
-	    var length = collection ? getLength(collection) : 0;
-	    if (!isLength(length)) {
-	      return eachFunc(collection, iteratee);
-	    }
-	    var index = fromRight ? length : -1,
-	        iterable = toObject(collection);
-
-	    while ((fromRight ? index-- : ++index < length)) {
-	      if (iteratee(iterable[index], index, iterable) === false) {
-	        break;
-	      }
-	    }
-	    return collection;
-	  };
-	}
-
-	/**
-	 * Creates a base function for `_.forIn` or `_.forInRight`.
-	 *
-	 * @private
-	 * @param {boolean} [fromRight] Specify iterating from right to left.
-	 * @returns {Function} Returns the new base function.
-	 */
-	function createBaseFor(fromRight) {
-	  return function(object, iteratee, keysFunc) {
-	    var iterable = toObject(object),
-	        props = keysFunc(object),
-	        length = props.length,
-	        index = fromRight ? length : -1;
-
-	    while ((fromRight ? index-- : ++index < length)) {
-	      var key = props[index];
-	      if (iteratee(iterable[key], key, iterable) === false) {
-	        break;
-	      }
-	    }
-	    return object;
-	  };
-	}
-
-	/**
-	 * Gets the "length" property value of `object`.
-	 *
-	 * **Note:** This function is used to avoid a [JIT bug](https://bugs.webkit.org/show_bug.cgi?id=142792)
-	 * that affects Safari on at least iOS 8.1-8.3 ARM64.
-	 *
-	 * @private
-	 * @param {Object} object The object to query.
-	 * @returns {*} Returns the "length" value.
-	 */
-	var getLength = baseProperty('length');
-
-	/**
-	 * Checks if `value` is a valid array-like length.
-	 *
-	 * **Note:** This function is based on [`ToLength`](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-tolength).
-	 *
-	 * @private
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is a valid length, else `false`.
-	 */
-	function isLength(value) {
-	  return typeof value == 'number' && value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
-	}
-
-	/**
-	 * Converts `value` to an object if it's not one.
-	 *
-	 * @private
-	 * @param {*} value The value to process.
-	 * @returns {Object} Returns the object.
-	 */
-	function toObject(value) {
-	  return isObject(value) ? value : Object(value);
-	}
-
-	/**
-	 * Checks if `value` is the [language type](https://es5.github.io/#x8) of `Object`.
-	 * (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
-	 *
-	 * @static
-	 * @memberOf _
-	 * @category Lang
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is an object, else `false`.
-	 * @example
-	 *
-	 * _.isObject({});
-	 * // => true
-	 *
-	 * _.isObject([1, 2, 3]);
-	 * // => true
-	 *
-	 * _.isObject(1);
-	 * // => false
-	 */
-	function isObject(value) {
-	  // Avoid a V8 JIT bug in Chrome 19-20.
-	  // See https://code.google.com/p/v8/issues/detail?id=2291 for more details.
-	  var type = typeof value;
-	  return !!value && (type == 'object' || type == 'function');
-	}
-
-	module.exports = baseEach;
-
-
-/***/ },
-/* 41 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * lodash 3.0.1 (Custom Build) <https://lodash.com/>
-	 * Build: `lodash modern modularize exports="npm" -o ./`
-	 * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
-	 * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
-	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	 * Available under MIT license <https://lodash.com/license>
-	 */
-	var baseCallback = __webpack_require__(36),
-	    baseFor = __webpack_require__(23),
-	    keys = __webpack_require__(19);
-
-	/**
-	 * The base implementation of `_.forOwn` without support for callback
-	 * shorthands and `this` binding.
-	 *
-	 * @private
-	 * @param {Object} object The object to iterate over.
-	 * @param {Function} iteratee The function invoked per iteration.
-	 * @returns {Object} Returns `object`.
-	 */
-	function baseForOwn(object, iteratee) {
-	  return baseFor(object, iteratee, keys);
-	}
-
-	/**
-	 * Creates a function for `_.mapKeys` or `_.mapValues`.
-	 *
-	 * @private
-	 * @param {boolean} [isMapKeys] Specify mapping keys instead of values.
-	 * @returns {Function} Returns the new map function.
-	 */
-	function createObjectMapper(isMapKeys) {
-	  return function(object, iteratee, thisArg) {
-	    var result = {};
-	    iteratee = baseCallback(iteratee, thisArg, 3);
-
-	    baseForOwn(object, function(value, key, object) {
-	      var mapped = iteratee(value, key, object);
-	      key = isMapKeys ? mapped : key;
-	      value = isMapKeys ? value : mapped;
-	      result[key] = value;
-	    });
-	    return result;
-	  };
-	}
-
-	/**
-	 * Creates an object with the same keys as `object` and values generated by
-	 * running each own enumerable property of `object` through `iteratee`. The
-	 * iteratee function is bound to `thisArg` and invoked with three arguments:
-	 * (value, key, object).
-	 *
-	 * If a property name is provided for `iteratee` the created `_.property`
-	 * style callback returns the property value of the given element.
-	 *
-	 * If a value is also provided for `thisArg` the created `_.matchesProperty`
-	 * style callback returns `true` for elements that have a matching property
-	 * value, else `false`.
-	 *
-	 * If an object is provided for `iteratee` the created `_.matches` style
-	 * callback returns `true` for elements that have the properties of the given
-	 * object, else `false`.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @category Object
-	 * @param {Object} object The object to iterate over.
-	 * @param {Function|Object|string} [iteratee=_.identity] The function invoked
-	 *  per iteration.
-	 * @param {*} [thisArg] The `this` binding of `iteratee`.
-	 * @returns {Object} Returns the new mapped object.
-	 * @example
-	 *
-	 * _.mapValues({ 'a': 1, 'b': 2 }, function(n) {
-	 *   return n * 3;
-	 * });
-	 * // => { 'a': 3, 'b': 6 }
-	 *
-	 * var users = {
-	 *   'fred':    { 'user': 'fred',    'age': 40 },
-	 *   'pebbles': { 'user': 'pebbles', 'age': 1 }
-	 * };
-	 *
-	 * // using the `_.property` callback shorthand
-	 * _.mapValues(users, 'age');
-	 * // => { 'fred': 40, 'pebbles': 1 } (iteration order is not guaranteed)
-	 */
-	var mapValues = createObjectMapper();
-
-	module.exports = mapValues;
-
-
-/***/ },
-/* 42 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(43);
-
-/***/ },
-/* 43 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(15);
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * @ignore
@@ -4586,8 +1359,8 @@ var ReactD3Basic =
 	 * @author yiminghe@gmail.com
 	 */
 
-	var util = __webpack_require__(44);
-	var parser = __webpack_require__(45);
+	var util = __webpack_require__(16);
+	var parser = __webpack_require__(17);
 
 	var EXPANDO_SELECTOR_KEY = '_ks_data_selector_id_',
 	  caches = {},
@@ -5279,9 +2052,9 @@ var ReactD3Basic =
 	 *  - http://sizzlejs.com/
 	 */
 
-/***/ },
-/* 44 */
-/***/ function(module, exports) {
+/***/ }),
+/* 16 */
+/***/ (function(module, exports) {
 
 	/**
 	 * attr fix for old ie
@@ -5630,9 +2403,9 @@ var ReactD3Basic =
 	  }
 	};
 
-/***/ },
-/* 45 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	/*
 	  Generated by kison.*/
@@ -6839,9 +3612,121 @@ var ReactD3Basic =
 	    module.exports = parser;
 	}
 
-/***/ },
-/* 46 */
-/***/ function(module, exports) {
+/***/ }),
+/* 18 */
+/***/ (function(module, exports) {
+
+	var hyphenExpression = /\-+([a-z])/gi
+
+	function upperCaseFirstMatch (match, c, offset) {
+	  if (offset !== 0) {
+	    return c.toUpperCase()
+	  } else {
+	    return c
+	  }
+	}
+
+	function camelCase (str) {
+	  var camelCased = str.replace(hyphenExpression, upperCaseFirstMatch)
+	  hyphenExpression.lastIndex = 0
+	  return camelCased
+	}
+
+	module.exports = camelCase
+
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports) {
+
+	function isString (value) {
+	  return typeof value === 'string'
+	}
+
+	module.exports = isString
+
+
+/***/ }),
+/* 20 */
+/***/ (function(module, exports) {
+
+	function isUndefined (value) {
+	  return typeof value === 'undefined'
+	}
+
+	module.exports = isUndefined
+
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports) {
+
+	function assign (dest) {
+	  var args = arguments
+	  var source
+
+	  for (var i = 1; i < args.length; i++) {
+	    source = args[i]
+
+	    for (var key in source) {
+	      dest[key] = source[key]
+	    }
+	  }
+
+	  return dest
+	}
+
+	module.exports = assign
+
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports) {
+
+	function mapValues (source, fn) {
+	  var destination = {}
+
+	  for (var key in source) {
+	    if (source.hasOwnProperty(key)) {
+	      destination[key] = fn(source[key])
+	    }
+	  }
+
+	  return destination
+	}
+
+	module.exports = mapValues
+
+
+/***/ }),
+/* 23 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var camelCase = __webpack_require__(18)
+
+	function styleCamelCase (name) {
+	  var camel = camelCase(name)
+
+	  // Detect if the style property is already camelCased
+	  // To not convert Webkit*, Moz* and O* to lowercase
+	  if (camel.charAt(0).toUpperCase() === name.charAt(0)) {
+	    return name.charAt(0) + camel.slice(1)
+	  }
+
+	  if (name.charAt(0) === '-') {
+	    return camel.indexOf('ms') === 0 ? camel
+	      : camel.charAt(0).toUpperCase() + camel.slice(1)
+	  } else {
+	    return camel
+	  }
+	}
+
+	module.exports = styleCamelCase
+
+
+/***/ }),
+/* 24 */
+/***/ (function(module, exports) {
 
 	var Window = {
 	  getComputedStyle: function (node) {
@@ -6854,9 +3739,69 @@ var ReactD3Basic =
 	module.exports = Window
 
 
-/***/ },
-/* 47 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 25 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var Element = __webpack_require__(12)
+	var mapValues = __webpack_require__(22)
+
+	var mixin = {
+	  componentWillMount: function () {
+	    this.connectedFauxDOM = {}
+	    this.animateFauxDOMUntil = 0
+	  },
+	  connectFauxDOM: function (node, name) {
+	    this.connectedFauxDOM[name] = typeof node !== 'string' ? node : new Element(node)
+	    setTimeout(this.drawFauxDOM)
+	    return this.connectedFauxDOM[name]
+	  },
+	  drawFauxDOM: function () {
+	    var virtualDOM = mapValues(this.connectedFauxDOM, function (n) {
+	      return n.toReact()
+	    })
+	    this.setState(virtualDOM)
+	  }
+	}
+
+	module.exports = mixin
+
+
+/***/ }),
+/* 26 */
+/***/ (function(module, exports) {
+
+	var anim = {
+	  animateFauxDOM: function (duration) {
+	    this.animateFauxDOMUntil = Math.max(Date.now() + duration, this.animateFauxDOMUntil)
+	    if (!this.fauxDOMAnimationInterval) {
+	      this.fauxDOMAnimationInterval = setInterval(function () {
+	        if (Date.now() < this.animateFauxDOMUntil) {
+	          this.drawFauxDOM()
+	        } else {
+	          this.stopAnimatingFauxDOM()
+	        }
+	      }.bind(this), 16)
+	    }
+	  },
+	  stopAnimatingFauxDOM: function () {
+	    this.fauxDOMAnimationInterval = clearInterval(this.fauxDOMAnimationInterval)
+	    this.animateFauxDOMUntil = 0
+	  },
+	  isAnimatingFauxDOM: function () {
+	    return !!this.fauxDOMAnimationInterval
+	  },
+	  componentWillUnmount: function () {
+	    this.stopAnimatingFauxDOM()
+	  }
+	}
+
+	module.exports = anim
+
+
+/***/ }),
+/* 27 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
@@ -6938,20 +3883,50 @@ var ReactD3Basic =
 	    }
 	  }, {
 	    key: 'wrap',
-	    value: function wrap(text, width) {
+	    value: function wrap(text, maxWidth, _class) {
 	      text.each(function () {
 	        var text = _d32['default'].select(this),
-	            words = text.text().split(/\s+/).reverse(),
 	            word,
 	            lineNumber = 0,
 	            lineHeight = 1.1,
 	            // ems
 	        y = text.attr("y"),
 	            dy = parseFloat(text.attr("dy")),
+	            textLine = text.text(),
+	            words = textLine.split(/\s+/),
 	            tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
-	        while (word = words.pop()) {
-	          tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+	        var c = document.createElement("canvas");
+	        var ctx = c.getContext("2d");
+	        ctx.font = "1em";
+	        var width = Math.round(ctx.measureText(textLine).width);
+	        var wordLines = [];
+	        var wordLine = "";
+	        if (maxWidth < width) {
+	          words.forEach(function (_word) {
+	            var wordWidth = Math.round(ctx.measureText(_word + " ").width);
+	            if (maxWidth < wordWidth) {
+	              maxWidth = wordWidth;
+	            }
+	          });
+	          for (var i = 0; i <= words.length; i++) {
+	            var _word2 = words[i];
+	            if (_word2 === undefined) {
+	              wordLines.push(wordLine);
+	              break;
+	            }
+	            if (Math.round(ctx.measureText(wordLine + ' ' + _word2).width) <= maxWidth) {
+	              wordLine += ' ' + _word2;
+	            } else {
+	              wordLines.push(wordLine);
+	              wordLine = _word2;
+	            }
+	          }
+	        } else {
+	          wordLines.push(textLine);
 	        }
+	        wordLines.forEach(function (word) {
+	          tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+	        });
 	      });
 	    }
 	  }, {
@@ -6963,9 +3938,11 @@ var ReactD3Basic =
 	      var axisClassName = _props2.axisClassName;
 	      var type = _props2.type;
 	      var style = _props2.style;
-	      var rangeRoundBands = _props2.rangeRoundBands;
 	      var wordWrap = _props2.wordWrap;
 	      var gridAxisLineStyle = _props2.gridAxisLineStyle;
+	      var width = _props2.width;
+	      var margins = _props2.margins;
+	      var rotateLabel = _props2.rotateLabel;
 
 	      var axisGroup = _reactFauxDom2['default'].createElement('g');
 
@@ -7017,13 +3994,19 @@ var ReactD3Basic =
 
 	      var axisText = axisDom.selectAll('.axis text');
 
-	      if (wordWrap) {
-	        axisDom.selectAll('.axis text').call(this.wrap);
-	      }
-
 	      if (style) {
 	        for (var key in style) {
 	          axisText.style(key, style[key]);
+	        }
+	      }
+
+	      if (wordWrap) {
+	        var maxTextWith = (width - margins.left - margins.right) / axisDom.selectAll('.axis text')[0].length - 10;
+	        axisDom.selectAll('.axis text').call(this.wrap, maxTextWith, this);
+	        if (rotateLabel) {
+	          axisDom.selectAll('.axis text').attr("transform", function (d) {
+	            return "rotate(45)";
+	          }).style('text-anchor', 'left');
 	        }
 	      }
 
@@ -7037,7 +4020,8 @@ var ReactD3Basic =
 	      domain: null,
 	      tickFormat: null,
 	      tickOrient: null,
-	      wordWrap: false
+	      wordWrap: false,
+	      rotateLabel: false
 	    },
 	    enumerable: true
 	  }, {
@@ -7057,9 +4041,9 @@ var ReactD3Basic =
 	exports['default'] = Axis;
 	module.exports = exports['default'];
 
-/***/ },
-/* 48 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 28 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
@@ -7081,11 +4065,11 @@ var ReactD3Basic =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _axis = __webpack_require__(47);
+	var _axis = __webpack_require__(27);
 
 	var _axis2 = _interopRequireDefault(_axis);
 
-	var _label = __webpack_require__(49);
+	var _label = __webpack_require__(29);
 
 	var _label2 = _interopRequireDefault(_label);
 
@@ -7129,6 +4113,7 @@ var ReactD3Basic =
 	      var style = _props.style;
 	      var xWordWrap = _props.xWordWrap;
 	      var xGridAxisLineStyle = _props.xGridAxisLineStyle;
+	      var xRotateLabel = _props.xRotateLabel;
 
 	      var t;
 	      var axisLabel;
@@ -7181,7 +4166,8 @@ var ReactD3Basic =
 	          ticks: xTicks,
 	          style: style,
 	          wordWrap: xWordWrap,
-	          gridAxisLineStyle: xGridAxisLineStyle
+	          gridAxisLineStyle: xGridAxisLineStyle,
+	          rotateLabel: xRotateLabel
 	        }),
 	        axisLabel
 	      );
@@ -7221,7 +4207,8 @@ var ReactD3Basic =
 	      xTicks: _react.PropTypes.array,
 	      style: _react.PropTypes.object,
 	      xWordWrap: _react.PropTypes.bool,
-	      xGridAxisLineStyle: _react.PropTypes.object
+	      xGridAxisLineStyle: _react.PropTypes.object,
+	      xRotateLabel: _react.PropTypes.bool
 	    },
 	    enumerable: true
 	  }]);
@@ -7232,9 +4219,9 @@ var ReactD3Basic =
 	exports['default'] = Xaxis;
 	module.exports = exports['default'];
 
-/***/ },
-/* 49 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 29 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
@@ -7359,9 +4346,9 @@ var ReactD3Basic =
 	exports['default'] = Label;
 	module.exports = exports['default'];
 
-/***/ },
-/* 50 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 30 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
@@ -7383,11 +4370,11 @@ var ReactD3Basic =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _axis = __webpack_require__(47);
+	var _axis = __webpack_require__(27);
 
 	var _axis2 = _interopRequireDefault(_axis);
 
-	var _label = __webpack_require__(49);
+	var _label = __webpack_require__(29);
 
 	var _label2 = _interopRequireDefault(_label);
 
@@ -7529,9 +4516,9 @@ var ReactD3Basic =
 	exports['default'] = Yaxis;
 	module.exports = exports['default'];
 
-/***/ },
-/* 51 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 31 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
@@ -7553,7 +4540,7 @@ var ReactD3Basic =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _axisAxis = __webpack_require__(47);
+	var _axisAxis = __webpack_require__(27);
 
 	var _axisAxis2 = _interopRequireDefault(_axisAxis);
 
@@ -7696,9 +4683,9 @@ var ReactD3Basic =
 	exports['default'] = Grid;
 	module.exports = exports['default'];
 
-/***/ },
-/* 52 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 32 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
@@ -7722,7 +4709,7 @@ var ReactD3Basic =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _grid = __webpack_require__(51);
+	var _grid = __webpack_require__(31);
 
 	var _grid2 = _interopRequireDefault(_grid);
 
@@ -7750,9 +4737,9 @@ var ReactD3Basic =
 	exports['default'] = XGrid;
 	module.exports = exports['default'];
 
-/***/ },
-/* 53 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 33 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
@@ -7776,7 +4763,7 @@ var ReactD3Basic =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _grid = __webpack_require__(51);
+	var _grid = __webpack_require__(31);
 
 	var _grid2 = _interopRequireDefault(_grid);
 
@@ -7804,9 +4791,9 @@ var ReactD3Basic =
 	exports['default'] = YGrid;
 	module.exports = exports['default'];
 
-/***/ },
-/* 54 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 34 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -7840,9 +4827,9 @@ var ReactD3Basic =
 	  }
 	}
 
-/***/ },
-/* 55 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 35 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -7904,9 +4891,9 @@ var ReactD3Basic =
 	  }
 	}
 
-/***/ },
-/* 56 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 36 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	// Export utils
 
@@ -7920,39 +4907,39 @@ var ReactD3Basic =
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _componentsLine = __webpack_require__(57);
+	var _componentsLine = __webpack_require__(37);
 
 	var _componentsLine2 = _interopRequireDefault(_componentsLine);
 
-	var _componentsArea = __webpack_require__(60);
+	var _componentsArea = __webpack_require__(40);
 
 	var _componentsArea2 = _interopRequireDefault(_componentsArea);
 
-	var _componentsArea_stack = __webpack_require__(61);
+	var _componentsArea_stack = __webpack_require__(41);
 
 	var _componentsArea_stack2 = _interopRequireDefault(_componentsArea_stack);
 
-	var _componentsBar = __webpack_require__(62);
+	var _componentsBar = __webpack_require__(42);
 
 	var _componentsBar2 = _interopRequireDefault(_componentsBar);
 
-	var _componentsBar_group = __webpack_require__(63);
+	var _componentsBar_group = __webpack_require__(43);
 
 	var _componentsBar_group2 = _interopRequireDefault(_componentsBar_group);
 
-	var _componentsBar_stack = __webpack_require__(64);
+	var _componentsBar_stack = __webpack_require__(44);
 
 	var _componentsBar_stack2 = _interopRequireDefault(_componentsBar_stack);
 
-	var _componentsPie = __webpack_require__(65);
+	var _componentsPie = __webpack_require__(45);
 
 	var _componentsPie2 = _interopRequireDefault(_componentsPie);
 
-	var _componentsScatter = __webpack_require__(66);
+	var _componentsScatter = __webpack_require__(46);
 
 	var _componentsScatter2 = _interopRequireDefault(_componentsScatter);
 
-	var _utilsSeries = __webpack_require__(59);
+	var _utilsSeries = __webpack_require__(39);
 
 	Object.defineProperty(exports, 'series', {
 	  enumerable: true,
@@ -7963,11 +4950,11 @@ var ReactD3Basic =
 
 	// Export basic component of charts
 
-	var _chart = __webpack_require__(67);
+	var _chart = __webpack_require__(47);
 
 	exports.Chart = _interopRequire(_chart);
 
-	var _chartpie = __webpack_require__(68);
+	var _chartpie = __webpack_require__(48);
 
 	exports.ChartPie = _interopRequire(_chartpie);
 	exports.Line = _componentsLine2['default'];
@@ -7979,9 +4966,9 @@ var ReactD3Basic =
 	exports.Pie = _componentsPie2['default'];
 	exports.Scatter = _componentsScatter2['default'];
 
-/***/ },
-/* 57 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 37 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
@@ -8011,11 +4998,11 @@ var ReactD3Basic =
 
 	var _reactFauxDom2 = _interopRequireDefault(_reactFauxDom);
 
-	var _commonProps = __webpack_require__(58);
+	var _commonProps = __webpack_require__(38);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
-	var _utilsSeries = __webpack_require__(59);
+	var _utilsSeries = __webpack_require__(39);
 
 	var Line = (function (_Component) {
 	  _inherits(Line, _Component);
@@ -8091,9 +5078,9 @@ var ReactD3Basic =
 	exports['default'] = Line;
 	module.exports = exports['default'];
 
-/***/ },
-/* 58 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 38 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
@@ -8129,13 +5116,15 @@ var ReactD3Basic =
 	  margins: margins,
 	  innerRadius: 0,
 	  categoricalColors: _d32['default'].scale.category10(),
-	  pieSort: _d32['default'].descending
+	  pieSort: _d32['default'].descending,
+	  showLegendText: true,
+	  showStroke: true
 	};
 	exports.pieProps = pieProps;
 
-/***/ },
-/* 59 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 39 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
@@ -8172,7 +5161,7 @@ var ReactD3Basic =
 	      return {
 	        x: x(d),
 	        y: y(d[f.field]),
-	        color: f.color,
+	        color: d.color ? d.color : f.color,
 	        name: f.name,
 	        field: f.field
 	      };
@@ -8184,9 +5173,9 @@ var ReactD3Basic =
 	  return chartSeriesData;
 	}
 
-/***/ },
-/* 60 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 40 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
@@ -8216,11 +5205,11 @@ var ReactD3Basic =
 
 	var _reactFauxDom2 = _interopRequireDefault(_reactFauxDom);
 
-	var _commonProps = __webpack_require__(58);
+	var _commonProps = __webpack_require__(38);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
-	var _utilsSeries = __webpack_require__(59);
+	var _utilsSeries = __webpack_require__(39);
 
 	var Area = (function (_Component) {
 	  _inherits(Area, _Component);
@@ -8310,9 +5299,9 @@ var ReactD3Basic =
 	exports['default'] = Area;
 	module.exports = exports['default'];
 
-/***/ },
-/* 61 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 41 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
@@ -8342,11 +5331,11 @@ var ReactD3Basic =
 
 	var _reactFauxDom2 = _interopRequireDefault(_reactFauxDom);
 
-	var _commonProps = __webpack_require__(58);
+	var _commonProps = __webpack_require__(38);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
-	var _utilsSeries = __webpack_require__(59);
+	var _utilsSeries = __webpack_require__(39);
 
 	var AreaStack = (function (_Component) {
 	  _inherits(AreaStack, _Component);
@@ -8456,9 +5445,9 @@ var ReactD3Basic =
 	exports['default'] = AreaStack;
 	module.exports = exports['default'];
 
-/***/ },
-/* 62 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 42 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
@@ -8488,7 +5477,7 @@ var ReactD3Basic =
 
 	var _reactFauxDom2 = _interopRequireDefault(_reactFauxDom);
 
-	var _utilsSeries = __webpack_require__(59);
+	var _utilsSeries = __webpack_require__(39);
 
 	var Bar = (function (_Component) {
 	  _inherits(Bar, _Component);
@@ -8510,6 +5499,12 @@ var ReactD3Basic =
 	      var yScaleSet = _props.yScaleSet;
 	      var onMouseOut = _props.onMouseOut;
 	      var onMouseOver = _props.onMouseOver;
+	      var onMouseMove = _props.onMouseMove;
+	      var onClick = _props.onClick;
+	      var xScaleMaxWidthRect = _props.xScaleMaxWidthRect;
+	      var valueInBar = _props.valueInBar;
+	      var verticalValueInBar = _props.verticalValueInBar;
+	      var formatValueInBar = _props.formatValueInBar;
 
 	      var dataset = (0, _utilsSeries.series)(this.props)[0];
 
@@ -8528,12 +5523,53 @@ var ReactD3Basic =
 	      }
 
 	      bar.selectAll(".bar").data(dataset.data).enter().append("rect").attr("class", barClassName + ' bar').attr("x", function (d) {
-	        return xScaleSet(d.x) ? xScaleSet(d.x) : -10000;
-	      }).attr("width", xScaleSet.rangeBand()).attr("y", function (d) {
+	        return xScaleSet(d.x) ? xScaleSet(d.x) + (xScaleSet.rangeBand() - Math.min(xScaleSet.rangeBand(), xScaleMaxWidthRect)) / 2 : -10000;
+	      }).attr("width", Math.min(xScaleSet.rangeBand(), xScaleMaxWidthRect)).attr("y", function (d) {
 	        return d.y < 0 ? zeroBase : yScaleSet(d.y);
 	      }).attr("height", function (d) {
 	        return d.y < domain[0] ? 0 : Math.abs(zeroBase - yScaleSet(d.y));
-	      }).style("fill", dataset.color).on("mouseover", onMouseOver).on("mouseout", onMouseOut);
+	      }).style("fill", function (d) {
+	        return d.color ? d.color : dataset.color;
+	      }).on("mouseover", onMouseOver).on("mousemove", onMouseMove ? onMouseMove : onMouseOver).on("mouseout", onMouseOut).on("click", onClick);
+
+	      if (valueInBar) {
+	        bar.selectAll("text").data(dataset.data).enter().append("text").attr("text-anchor", verticalValueInBar ? "start" : "middle").attr("height", 15).attr("x", function (d) {
+	          var x = xScaleSet(d.x) ? xScaleSet(d.x) + xScaleSet.rangeBand() / 2 : -10000;
+	          if (verticalValueInBar) {
+	            return x + 11 / 2;
+	          }
+	          return x;
+	        }).attr("y", function (d) {
+	          if (verticalValueInBar) {
+	            return zeroBase - 10;
+	          }
+	          var height = Math.abs(d.y < domain[0] ? 0 : Math.abs(zeroBase - yScaleSet(d.y)));
+	          if (height < 15) {
+	            return yScaleSet(d.y) + height;
+	          }
+	          return yScaleSet(d.y) + 15;
+	        }).attr("style", "font-weight:bold").text(function (d) {
+	          var height = Math.abs(d.y < domain[0] ? 0 : Math.abs(zeroBase - yScaleSet(d.y)));
+	          if (verticalValueInBar && formatValueInBar(d.y).toString().length * 7 * (1 + 1 / 3) < height - 10 || !verticalValueInBar && d.y > 0 && height > 15) {
+	            return formatValueInBar(d.y);
+	          }
+	          return "";
+	        }).attr("fill", function (d) {
+	          var hexColor = parseInt(d.color.replace("#", ""), 16);
+	          var l = Math.max((hexColor & 0xFF0000) >> 16, (hexColor & 0x00ff00) >> 8, hexColor & 0x0000ff) / 255;
+	          if (l > 0.7) {
+	            return "#000000";
+	          }
+	          return "#ffffff";
+	        }).attr("transform", function (d) {
+	          if (verticalValueInBar) {
+	            var x = xScaleSet(d.x) ? xScaleSet(d.x) + xScaleSet.rangeBand() / 2 : -10000;
+	            var y = zeroBase - 10;
+	            return 'rotate(-90,' + (x + 11 / 2) + ',' + y + ')';
+	          }
+	          return "";
+	        }).on("mouseover", onMouseOver).on("mousemove", onMouseMove ? onMouseMove : onMouseOver).on("mouseout", onMouseOut);
+	      }
 
 	      if (dataset.style) {
 	        for (var key in dataset.style) {
@@ -8557,7 +5593,14 @@ var ReactD3Basic =
 	      interpolate: null,
 	      onMouseOver: function onMouseOver(d) {},
 	      onMouseOut: function onMouseOut(d) {},
-	      barClassName: 'react-d3-basic__bar'
+	      onClick: function onClick(d) {},
+	      barClassName: 'react-d3-basic__bar',
+	      xScaleMaxWidthRect: 50,
+	      valueInBar: false,
+	      verticalValueInBar: false,
+	      formatValueInBar: function formatValueInBar(d) {
+	        return d;
+	      }
 	    },
 	    enumerable: true
 	  }]);
@@ -8568,9 +5611,9 @@ var ReactD3Basic =
 	exports['default'] = Bar;
 	module.exports = exports['default'];
 
-/***/ },
-/* 63 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 43 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
@@ -8600,7 +5643,7 @@ var ReactD3Basic =
 
 	var _reactFauxDom2 = _interopRequireDefault(_reactFauxDom);
 
-	var _utilsSeries = __webpack_require__(59);
+	var _utilsSeries = __webpack_require__(39);
 
 	var BarGroup = (function (_Component) {
 	  _inherits(BarGroup, _Component);
@@ -8622,6 +5665,7 @@ var ReactD3Basic =
 	      var yScaleSet = _props.yScaleSet;
 	      var onMouseOut = _props.onMouseOut;
 	      var onMouseOver = _props.onMouseOver;
+	      var barGroupClass = _props.barGroupClass;
 
 	      var dataset = (0, _utilsSeries.series)(this.props);
 	      var x1 = _d32['default'].scale.ordinal();
@@ -8645,7 +5689,7 @@ var ReactD3Basic =
 	      // make areas
 	      var chart = _d32['default'].select(dom);
 
-	      chart.selectAll('.bargroup').data(dataset).enter().append('g').attr("class", "bargroup").each(function (dt, i) {
+	      chart.selectAll('.bargroup').data(dataset).enter().append('g').attr("class", barGroupClass + ' bargroup').each(function (dt, i) {
 	        var dom = _d32['default'].select(this).selectAll("rect").data(dt.data).enter().append("rect").attr("class", barClassName + ' bar').attr("width", x1.rangeBand()).attr("x", function (d) {
 	          return xScaleSet(d.x) ? xScaleSet(d.x) + x1.rangeBand() * i : -10000;
 	        }).attr("y", function (d) {
@@ -8678,7 +5722,8 @@ var ReactD3Basic =
 	    value: {
 	      onMouseOver: function onMouseOver(d) {},
 	      onMouseOut: function onMouseOut(d) {},
-	      barClassName: 'react-d3-basic__bar_group'
+	      barClassName: 'react-d3-basic__bar_group',
+	      barGroupClass: 'react-d3-basic__group_bars'
 	    },
 	    enumerable: true
 	  }]);
@@ -8689,9 +5734,9 @@ var ReactD3Basic =
 	exports['default'] = BarGroup;
 	module.exports = exports['default'];
 
-/***/ },
-/* 64 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 44 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
@@ -8721,7 +5766,7 @@ var ReactD3Basic =
 
 	var _reactFauxDom2 = _interopRequireDefault(_reactFauxDom);
 
-	var _utilsSeries = __webpack_require__(59);
+	var _utilsSeries = __webpack_require__(39);
 
 	var BarStack = (function (_Component) {
 	  _inherits(BarStack, _Component);
@@ -8743,6 +5788,11 @@ var ReactD3Basic =
 	      var yScaleSet = _props.yScaleSet;
 	      var onMouseOver = _props.onMouseOver;
 	      var onMouseOut = _props.onMouseOut;
+	      var barStackClass = _props.barStackClass;
+	      var valueInBar = _props.valueInBar;
+	      var xScaleMaxWidthRect = _props.xScaleMaxWidthRect;
+	      var verticalValueInBar = _props.verticalValueInBar;
+	      var formatValueInBar = _props.formatValueInBar;
 
 	      var dataset = (0, _utilsSeries.series)(this.props);
 
@@ -8762,7 +5812,7 @@ var ReactD3Basic =
 	        zeroBase = yScaleSet.range()[1];
 	      }
 
-	      var barGroup = chart.selectAll("g").data(_setStack(dataset)).enter().append("g").attr("class", "barGroup").style("fill", function (d) {
+	      var barGroup = chart.selectAll("g").data(_setStack(dataset)).enter().append("g").attr("class", barStackClass + ' barGroup').style("fill", function (d) {
 	        return d.color;
 	      }).attr("style", function (d) {
 	        var s = '';
@@ -8776,13 +5826,55 @@ var ReactD3Basic =
 
 	      barGroup.selectAll("rect").data(function (d) {
 	        return d.data;
-	      }).enter().append("rect").attr("class", barClassName + ' bar').attr("width", xScaleSet.rangeBand()).attr("x", function (d) {
-	        return xScaleSet(d.x) ? xScaleSet(d.x) : -10000;
+	      }).enter().append("rect").attr("class", barClassName + ' bar').attr("width", Math.min(xScaleSet.rangeBand(), xScaleMaxWidthRect)).attr("x", function (d) {
+	        return xScaleSet(d.x) ? xScaleSet(d.x) + (xScaleSet.rangeBand() - Math.min(xScaleSet.rangeBand(), xScaleMaxWidthRect)) / 2 : -10000;
 	      }).attr("y", function (d, i) {
 	        return yScaleSet(d.y0 + d.y);
 	      }).attr("height", function (d, i) {
 	        return Math.abs(yScaleSet(d.y) - yScaleSet(0));
-	      }).on("mouseover", onMouseOver).on("mouseout", onMouseOut);
+	      }).on("mouseover", onMouseOver).on("mousemove", onMouseOver).on("mouseout", onMouseOut);
+
+	      if (valueInBar) {
+	        barGroup.selectAll("text").data(function (d) {
+	          return d.data;
+	        }).enter().append("text").attr("text-anchor", verticalValueInBar ? "start" : "middle").attr("height", 15).attr("x", function (d) {
+	          var x = xScaleSet(d.x) ? xScaleSet(d.x) + xScaleSet.rangeBand() / 2 : -10000;
+	          if (verticalValueInBar) {
+	            return x + 11 / 2;
+	          }
+	          return x;
+	        }).attr("y", function (d) {
+	          var height = Math.abs(yScaleSet(d.y) - yScaleSet(0));
+	          if (verticalValueInBar) {
+	            return yScaleSet(d.y0 + d.y) - 10 + height;
+	          }
+	          if (height < 15) {
+	            return yScaleSet(d.y0 + d.y) + height;
+	          }
+	          return yScaleSet(d.y0 + d.y) + 15;
+	        }).attr("style", "font-weight:bold").text(function (d) {
+	          var height = Math.abs(yScaleSet(d.y) - yScaleSet(0));
+	          if (verticalValueInBar && formatValueInBar(d.y).toString().length * 7 * (1 + 1 / 3) < height - 10 || !verticalValueInBar && d.y > 0 && height > 15) {
+	            return formatValueInBar(d.y);
+	          }
+	          return "";
+	        }).attr("fill", function (d) {
+	          var hexColor = parseInt(d.color.replace("#", ""), 16);
+	          var l = Math.max((hexColor & 0xFF0000) >> 16, (hexColor & 0x00ff00) >> 8, hexColor & 0x0000ff) / 255;
+	          if (l > 0.7) {
+	            return "#000000";
+	          }
+	          return "#ffffff";
+	        }).attr("transform", function (d) {
+	          if (verticalValueInBar) {
+	            var _height = Math.abs(yScaleSet(d.y) - yScaleSet(0));
+	            var x = xScaleSet(d.x) ? xScaleSet(d.x) + xScaleSet.rangeBand() / 2 : -10000;
+	            var y = yScaleSet(d.y0 + d.y) + _height - 10;
+	            return 'rotate(-90,' + (x + 11 / 2) + ',' + y + ')';
+	          }
+	          return "";
+	        }).on("mouseover", onMouseOver).on("mousemove", onMouseOver).on("mouseout", onMouseOut);
+	      }
 
 	      return chart;
 	    }
@@ -8829,7 +5921,14 @@ var ReactD3Basic =
 	    value: {
 	      onMouseOver: function onMouseOver(d) {},
 	      onMouseOut: function onMouseOut(d) {},
-	      barClassName: 'react-d3-basic__bar_stack'
+	      barClassName: 'react-d3-basic__bar_stack',
+	      barStackClass: 'react-d3-basic__stack_bars',
+	      xScaleMaxWidthRect: 50,
+	      valueInBar: false,
+	      verticalValueInBar: false,
+	      formatValueInBar: function formatValueInBar(d) {
+	        return d;
+	      }
 	    },
 	    enumerable: true
 	  }]);
@@ -8840,9 +5939,9 @@ var ReactD3Basic =
 	exports['default'] = BarStack;
 	module.exports = exports['default'];
 
-/***/ },
-/* 65 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 45 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
@@ -8868,7 +5967,7 @@ var ReactD3Basic =
 
 	var _d32 = _interopRequireDefault(_d3);
 
-	var _commonProps = __webpack_require__(58);
+	var _commonProps = __webpack_require__(38);
 
 	var _reactFauxDom = __webpack_require__(11);
 
@@ -8893,7 +5992,7 @@ var ReactD3Basic =
 	      var name = _props.name;
 	      var categoricalColors = _props.categoricalColors;
 
-	      var chartSeriesData = chartSeries.map(function (f, i) {
+	      return chartSeries.map(function (f, i) {
 
 	        // set a color if not set
 	        if (!f.color) f.color = categoricalColors(i);
@@ -8909,8 +6008,6 @@ var ReactD3Basic =
 
 	        return Object.assign(f, { value: value(val) });
 	      });
-
-	      return chartSeriesData;
 	    }
 	  }, {
 	    key: '_mkPie',
@@ -8921,13 +6018,17 @@ var ReactD3Basic =
 	      var innerRadius = _props2.innerRadius;
 	      var outerRadius = _props2.outerRadius;
 	      var pieSort = _props2.pieSort;
-	      var value = _props2.value;
-	      var radius = _props2.radius;
+	      var name = _props2.name;
 	      var onMouseOut = _props2.onMouseOut;
 	      var onMouseOver = _props2.onMouseOver;
+	      var onMouseMove = _props2.onMouseMove;
+	      var onClick = _props2.onClick;
+	      var showLegendText = _props2.showLegendText;
+	      var showStroke = _props2.showStroke;
+	      var arcClassName = _props2.arcClassName;
 
 	      var radius = this.props.radius || Math.min(width - 100, height - 100) / 2;
-	      var outerRadius = outerRadius || radius - 10;
+	      outerRadius = outerRadius || radius - 10;
 
 	      var chartSeriesData = this.mkSeries();
 
@@ -8943,11 +6044,13 @@ var ReactD3Basic =
 
 	      var pieDom = _d32['default'].select(dom);
 
-	      var g = pieDom.selectAll('.arc').data(pie(chartSeriesData)).enter().append('g').attr('class', 'arc');
+	      var g = pieDom.selectAll('.arc').data(pie(chartSeriesData)).enter().append('g').attr('class', arcClassName ? arcClassName + ' arc' : 'arc').attr('key', function (d) {
+	        return name(d.data);
+	      });
 
 	      g.append("path").attr("d", arc).style("fill", function (d) {
 	        return d.data.color;
-	      }).style("stroke", "#FFF").attr("style", function (d) {
+	      }).style("stroke", showStroke ? "#fff" : "none").attr("style", function (d) {
 	        var s = '';
 	        if (d.data.style) {
 	          for (var key in d.data.style) {
@@ -8955,24 +6058,26 @@ var ReactD3Basic =
 	          }
 	        }
 	        return s;
-	      }).on("mouseover", onMouseOver).on("mouseout", onMouseOut);
+	      }).on("mouseover", onMouseOver).on("mousemove", onMouseMove ? onMouseMove : onMouseOver).on("mouseout", onMouseOut).on("click", onClick);
 
 	      var labelr = radius + 10;
 
-	      g.append("text").attr("transform", function (d) {
-	        var c = arc.centroid(d),
-	            x = c[0],
-	            y = c[1],
+	      if (showLegendText) {
+	        g.append("text").attr("transform", function (d) {
+	          var c = arc.centroid(d),
+	              x = c[0],
+	              y = c[1],
 
-	        // pythagorean theorem for hypotenuse
-	        h = Math.sqrt(x * x + y * y);
+	          // pythagorean theorem for hypotenuse
+	          h = Math.sqrt(x * x + y * y);
 
-	        return "translate(" + x / h * labelr + ',' + y / h * labelr + ")";
-	      }).attr("dy", ".35em").style("text-anchor", function (d) {
-	        return (d.endAngle + d.startAngle) / 2 > Math.PI ? "end" : "start";
-	      }).text(function (d) {
-	        return d.data.name;
-	      });
+	          return "translate(" + x / h * labelr + ',' + y / h * labelr + ")";
+	        }).attr("dy", ".35em").style("text-anchor", function (d) {
+	          return (d.endAngle + d.startAngle) / 2 > Math.PI ? "end" : "start";
+	        }).text(function (d) {
+	          return d.data.name;
+	        });
+	      }
 
 	      return pieDom;
 	    }
@@ -8998,7 +6103,9 @@ var ReactD3Basic =
 	    key: 'defaultProps',
 	    value: Object.assign(_commonProps.pieProps, {
 	      onMouseOver: function onMouseOver(d) {},
-	      onMouseOut: function onMouseOut(d) {}
+	      onMouseOut: function onMouseOut(d) {},
+	      onClick: function onClick(d) {},
+	      arcClassName: ''
 	    }),
 	    enumerable: true
 	  }]);
@@ -9009,9 +6116,9 @@ var ReactD3Basic =
 	exports['default'] = Pie;
 	module.exports = exports['default'];
 
-/***/ },
-/* 66 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 46 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
@@ -9041,7 +6148,7 @@ var ReactD3Basic =
 
 	var _reactFauxDom2 = _interopRequireDefault(_reactFauxDom);
 
-	var _utilsSeries = __webpack_require__(59);
+	var _utilsSeries = __webpack_require__(39);
 
 	var Scatter = (function (_Component) {
 	  _inherits(Scatter, _Component);
@@ -9057,6 +6164,8 @@ var ReactD3Basic =
 	    value: function _mkScatter(dom, dataset) {
 	      var _props = this.props;
 	      var scatterClassName = _props.scatterClassName;
+	      var scatterBgClassName = _props.scatterBgClassName;
+	      var showScatterBg = _props.showScatterBg;
 	      var defaultSymbol = _props.defaultSymbol;
 	      var defaultSymbolSize = _props.defaultSymbolSize;
 	      var brushSymbol = _props.brushSymbol;
@@ -9076,7 +6185,17 @@ var ReactD3Basic =
 	        var symbol = dot.symbol ? dot.symbol : defaultSymbol;
 	        var symbolSize = dot.symbolSize ? dot.symbolSize : defaultSymbolSize;
 
-	        var dom = _d32['default'].select(this).selectAll('' + scatterClassName).data(dot.data).enter().append('path').attr('class', 'react-d3-basic__scatter__path').style('fill', dot.color).attr('transform', function (d) {
+	        var dom = _d32['default'].select(this);
+
+	        if (showScatterBg) {
+	          dom.selectAll('' + scatterClassName).data(dot.data).enter().append('path').attr('class', scatterBgClassName + ' scatter').style('fill', "#ffffff").attr('transform', function (d) {
+	            return "translate(" + xScaleSet(d.x) + "," + yScaleSet(d.y) + ")";
+	          }).attr('d', _d32['default'].svg.symbol().size(function (d) {
+	            return symbolSize * symbolSize;
+	          }).type(symbol));
+	        }
+
+	        dom.selectAll('' + scatterClassName).data(dot.data).enter().append('path').attr('class', scatterClassName + ' scatter').style('fill', dot.color).attr('transform', function (d) {
 	          return "translate(" + xScaleSet(d.x) + "," + yScaleSet(d.y) + ")";
 	        }).attr('d', _d32['default'].svg.symbol().size(function (d) {
 	          return symbolSize * symbolSize;
@@ -9107,7 +6226,9 @@ var ReactD3Basic =
 	    value: {
 	      defaultSymbol: 'circle',
 	      defaultSymbolSize: 10,
-	      scatterClassName: 'react-d3-basic__scatter'
+	      scatterClassName: 'react-d3-basic__scatter',
+	      scatterBgClassName: 'react-d3-basic__scatter_bg',
+	      showScatterBg: false
 	    },
 	    enumerable: true
 	  }]);
@@ -9118,9 +6239,9 @@ var ReactD3Basic =
 	exports['default'] = Scatter;
 	module.exports = exports['default'];
 
-/***/ },
-/* 67 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 47 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
@@ -9148,7 +6269,7 @@ var ReactD3Basic =
 
 	var _d32 = _interopRequireDefault(_d3);
 
-	var _commonProps = __webpack_require__(58);
+	var _commonProps = __webpack_require__(38);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
@@ -9187,6 +6308,7 @@ var ReactD3Basic =
 	      var x = _props.x;
 	      var y = _props.y;
 	      var xWordWrap = _props.xWordWrap;
+	      var style = _props.style;
 
 	      var xRange = xRange || [0, width - margins.left - margins.right];
 	      var yRange = yRange || [height - margins.top - margins.bottom, 0];
@@ -9251,7 +6373,8 @@ var ReactD3Basic =
 	          width: width,
 	          className: svgClassName,
 	          id: id,
-	          ref: 'svgContainer'
+	          ref: 'svgContainer',
+	          style: style
 	        },
 	        _react2['default'].createElement(
 	          'g',
@@ -9286,9 +6409,9 @@ var ReactD3Basic =
 	exports['default'] = ChartSvg;
 	module.exports = exports['default'];
 
-/***/ },
-/* 68 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 48 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
@@ -9316,7 +6439,7 @@ var ReactD3Basic =
 
 	var _d32 = _interopRequireDefault(_d3);
 
-	var _commonProps = __webpack_require__(58);
+	var _commonProps = __webpack_require__(38);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
@@ -9397,9 +6520,9 @@ var ReactD3Basic =
 	exports['default'] = ChartSvg;
 	module.exports = exports['default'];
 
-/***/ },
-/* 69 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 49 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
@@ -9439,9 +6562,9 @@ var ReactD3Basic =
 	};
 	exports.pieProps = pieProps;
 
-/***/ },
-/* 70 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 50 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
@@ -9467,9 +6590,9 @@ var ReactD3Basic =
 
 	var _reactD3Core = __webpack_require__(3);
 
-	var _reactD3Shape = __webpack_require__(56);
+	var _reactD3Shape = __webpack_require__(36);
 
-	var _commonProps = __webpack_require__(69);
+	var _commonProps = __webpack_require__(49);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
@@ -9493,12 +6616,21 @@ var ReactD3Basic =
 	      var chartSeries = _props.chartSeries;
 	      var showXGrid = _props.showXGrid;
 	      var showYGrid = _props.showYGrid;
+	      var xAxisClassName = _props.xAxisClassName;
+	      var yAxisClassName = _props.yAxisClassName;
+	      var xWordWrap = _props.xWordWrap;
+	      var xGridAxisLineStyle = _props.xGridAxisLineStyle;
+	      var yGridAxisLineStyle = _props.yGridAxisLineStyle;
 	      var categoricalColors = _props.categoricalColors;
+	      var showLine = _props.showLine;
+	      var showScatter = _props.showScatter;
 
-	      var xgrid, ygrid;
+	      var xgrid, ygrid, line, scatter;
 
-	      if (showXGrid) xgrid = _react2['default'].createElement(_reactD3Core.Xgrid, null);
-	      if (showYGrid) ygrid = _react2['default'].createElement(_reactD3Core.Ygrid, null);
+	      if (showXGrid) xgrid = _react2['default'].createElement(_reactD3Core.Xgrid, { gridAxisLineStyle: xGridAxisLineStyle });
+	      if (showYGrid) ygrid = _react2['default'].createElement(_reactD3Core.Ygrid, { gridAxisLineStyle: yGridAxisLineStyle });
+	      if (showLine) line = _react2['default'].createElement(_reactD3Shape.Line, _extends({}, this.props, { chartSeries: chartSeries }));
+	      if (showScatter) scatter = _react2['default'].createElement(_reactD3Shape.Scatter, _extends({}, this.props, { chartSeries: chartSeries }));
 
 	      return _react2['default'].createElement(
 	        'div',
@@ -9517,20 +6649,30 @@ var ReactD3Basic =
 	            data: data,
 	            chartSeries: chartSeries
 	          }),
-	          _react2['default'].createElement(_reactD3Shape.Area, {
-	            chartSeries: chartSeries
-	          }),
 	          xgrid,
 	          ygrid,
-	          _react2['default'].createElement(_reactD3Core.Xaxis, null),
-	          _react2['default'].createElement(_reactD3Core.Yaxis, null)
+	          _react2['default'].createElement(_reactD3Core.Xaxis, {
+	            xAxisClassName: xAxisClassName,
+	            xWordWrap: xWordWrap,
+	            xGridAxisLineStyle: xGridAxisLineStyle
+	          }),
+	          _react2['default'].createElement(_reactD3Core.Yaxis, {
+	            yAxisClassName: yAxisClassName,
+	            yGridAxisLineStyle: yGridAxisLineStyle
+	          }),
+	          _react2['default'].createElement(_reactD3Shape.Area, _extends({}, this.props, {
+	            chartSeries: chartSeries
+	          })),
+	          line,
+	          scatter
 	        )
 	      );
 	    }
 	  }], [{
 	    key: 'defaultProps',
 	    value: Object.assign(_commonProps2['default'], {
-	      showScatter: false
+	      showScatter: false,
+	      showLine: false
 	    }),
 	    enumerable: true
 	  }, {
@@ -9551,9 +6693,9 @@ var ReactD3Basic =
 	exports['default'] = AreaChart;
 	module.exports = exports['default'];
 
-/***/ },
-/* 71 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 51 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
@@ -9579,9 +6721,9 @@ var ReactD3Basic =
 
 	var _reactD3Core = __webpack_require__(3);
 
-	var _reactD3Shape = __webpack_require__(56);
+	var _reactD3Shape = __webpack_require__(36);
 
-	var _commonProps = __webpack_require__(69);
+	var _commonProps = __webpack_require__(49);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
@@ -9660,9 +6802,9 @@ var ReactD3Basic =
 	exports['default'] = ScatterPlot;
 	module.exports = exports['default'];
 
-/***/ },
-/* 72 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 52 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
@@ -9688,9 +6830,9 @@ var ReactD3Basic =
 
 	var _reactD3Core = __webpack_require__(3);
 
-	var _reactD3Shape = __webpack_require__(56);
+	var _reactD3Shape = __webpack_require__(36);
 
-	var _commonProps = __webpack_require__(69);
+	var _commonProps = __webpack_require__(49);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
@@ -9719,6 +6861,10 @@ var ReactD3Basic =
 	      var xAxisClassName = _props.xAxisClassName;
 	      var yAxisClassName = _props.yAxisClassName;
 	      var xWordWrap = _props.xWordWrap;
+	      var onMouseOver = _props.onMouseOver;
+	      var onMouseOut = _props.onMouseOut;
+	      var onMouseMove = _props.onMouseMove;
+	      var onClick = _props.onClick;
 	      var xGridAxisLineStyle = _props.xGridAxisLineStyle;
 	      var yGridAxisLineStyle = _props.yGridAxisLineStyle;
 
@@ -9756,6 +6902,10 @@ var ReactD3Basic =
 	            yGridAxisLineStyle: yGridAxisLineStyle
 	          }),
 	          _react2['default'].createElement(_reactD3Shape.Bar, {
+	            onMouseOver: onMouseOver,
+	            onMouseOut: onMouseOut,
+	            onClick: onClick,
+	            onMouseMove: onMouseMove ? onMouseMove : onMouseOver,
 	            chartSeries: chartSeries,
 	            barClassName: barClassName
 	          })
@@ -9766,7 +6916,8 @@ var ReactD3Basic =
 	    key: 'defaultProps',
 	    value: Object.assign(_commonProps2['default'], {
 	      onMouseOver: function onMouseOver() {},
-	      onMouseOut: function onMouseOut() {}
+	      onMouseOut: function onMouseOut() {},
+	      onClick: function onClick() {}
 	    }),
 	    enumerable: true
 	  }, {
@@ -9787,9 +6938,9 @@ var ReactD3Basic =
 	exports['default'] = BarChart;
 	module.exports = exports['default'];
 
-/***/ },
-/* 73 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 53 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
@@ -9815,9 +6966,9 @@ var ReactD3Basic =
 
 	var _reactD3Core = __webpack_require__(3);
 
-	var _reactD3Shape = __webpack_require__(56);
+	var _reactD3Shape = __webpack_require__(36);
 
-	var _commonProps = __webpack_require__(69);
+	var _commonProps = __webpack_require__(49);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
@@ -9900,9 +7051,9 @@ var ReactD3Basic =
 	exports['default'] = BarGroupChart;
 	module.exports = exports['default'];
 
-/***/ },
-/* 74 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 54 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
@@ -9928,9 +7079,9 @@ var ReactD3Basic =
 
 	var _reactD3Core = __webpack_require__(3);
 
-	var _reactD3Shape = __webpack_require__(56);
+	var _reactD3Shape = __webpack_require__(36);
 
-	var _commonProps = __webpack_require__(69);
+	var _commonProps = __webpack_require__(49);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
@@ -10011,9 +7162,9 @@ var ReactD3Basic =
 	exports['default'] = AreaStackChart;
 	module.exports = exports['default'];
 
-/***/ },
-/* 75 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 55 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
@@ -10039,9 +7190,9 @@ var ReactD3Basic =
 
 	var _reactD3Core = __webpack_require__(3);
 
-	var _reactD3Shape = __webpack_require__(56);
+	var _reactD3Shape = __webpack_require__(36);
 
-	var _commonProps = __webpack_require__(69);
+	var _commonProps = __webpack_require__(49);
 
 	var _commonProps2 = _interopRequireDefault(_commonProps);
 
@@ -10125,9 +7276,9 @@ var ReactD3Basic =
 	exports['default'] = BarStackChart;
 	module.exports = exports['default'];
 
-/***/ },
-/* 76 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 56 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
@@ -10153,7 +7304,7 @@ var ReactD3Basic =
 
 	var _reactD3Core = __webpack_require__(3);
 
-	var _reactD3Shape = __webpack_require__(56);
+	var _reactD3Shape = __webpack_require__(36);
 
 	var PieChart = (function (_Component) {
 	  _inherits(PieChart, _Component);
@@ -10175,15 +7326,19 @@ var ReactD3Basic =
 	      var value = _props.value;
 	      var name = _props.name;
 	      var categoricalColors = _props.categoricalColors;
+	      var showLegend = _props.showLegend;
+
+	      var legend;
+	      if (showLegend) legend = _react2['default'].createElement(_reactD3Core.Legend, _extends({}, this.props, {
+	        width: width,
+	        chartSeries: chartSeries,
+	        categoricalColors: categoricalColors
+	      }));
 
 	      return _react2['default'].createElement(
 	        'div',
 	        null,
-	        _react2['default'].createElement(_reactD3Core.Legend, _extends({}, this.props, {
-	          width: width,
-	          chartSeries: chartSeries,
-	          categoricalColors: categoricalColors
-	        })),
+	        legend,
 	        _react2['default'].createElement(
 	          _reactD3Shape.ChartPie,
 	          _extends({}, this.props, {
@@ -10226,5 +7381,5 @@ var ReactD3Basic =
 	exports['default'] = PieChart;
 	module.exports = exports['default'];
 
-/***/ }
+/***/ })
 /******/ ]);
