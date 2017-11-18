@@ -31,6 +31,8 @@ export default class BarChart extends Component {
     onMouseOver: () => {
     },
     onMouseOut: () => {
+    },
+    onClick: () => {
     }
   })
 
@@ -57,6 +59,10 @@ export default class BarChart extends Component {
       xAxisClassName,
       yAxisClassName,
       xWordWrap,
+      onMouseOver,
+      onMouseOut,
+      onMouseMove,
+      onClick,
       xGridAxisLineStyle,
       yGridAxisLineStyle
       } = this.props;
@@ -95,6 +101,10 @@ export default class BarChart extends Component {
             yGridAxisLineStyle={yGridAxisLineStyle}
           />
           <Bar
+            onMouseOver={onMouseOver}
+            onMouseOut={onMouseOut}
+            onClick={onClick}
+            onMouseMove={onMouseMove ? onMouseMove : onMouseOver}
             chartSeries={chartSeries}
             barClassName={barClassName}
           />
